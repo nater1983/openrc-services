@@ -17,4 +17,4 @@ stop() {
     ebegin "Stopping ${SVCNAME}"
     start-stop-daemon --stop --quiet --exec /opt/sbin/atieventsd
     eend $?
-}}
+}

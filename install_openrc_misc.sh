@@ -61,6 +61,7 @@ _IAt=${_local_uri}/atd.rc8
 _Clibvirt=${_local_uri}/libvirtd.confd-r5
 _Ilibvirt=${_local_uri}/libvirtd.init-r16
 _Ivirtlock=${_local_uri}/virtlockd.init-r1
+_Ivirtlog=${_local_uri}/virtlogd.init-r1
 
 # install
 install -Dm644 "${_Cbit}" "${DESTDIR}/etc/conf.d/bitlbee"
@@ -117,6 +118,7 @@ install -Dm755 "${_IAt}" "${DESTDIR}/etc/init.d/atd"
 install -Dm644 "${_Clibvirt}" "${DESTDIR}/etc/conf.d/libvirtd"
 install -Dm755 "${_Ilibvirt}" "${DESTDIR}/etc/init.d/libvirtd"
 install -Dm755 "${_Ivirtlock}" "${DESTDIR}/etc/init.d/virtlockd"
+install -Dm755 "${_Ivirtlog}" "${DESTDIR}/etc/init.d/virtlogd"
 install -Dm755 "misc/init.d/zfs.initd" "${DESTDIR}/etc/init.d/zfs"
 install -Dm755 "misc/init.d/anacron.rc6" "${DESTDIR}/etc/init.d/anacron"
 install -Dm644 "misc/conf.d/sensord-conf.d" "${DESTDIR}/etc/conf.d/sensord"
