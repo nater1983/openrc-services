@@ -15,6 +15,10 @@ _Csvn=${_local_uri}/svnserve.confd
 _Isvn=${_local_uri}/svnserve.initd3
 _CPgsql=${_local_uri}/postgresql.confd
 _IPgsql=${_local_uri}/postgresql.init-9.3
+_CDistcc=${_local_uri}/conf
+_IDistcc=${_local_uri}/init
+_IJenk=${_local_uri}/jenkins.initd
+_LJenk=${_local_uri}/jenkins.logrotate
 _Iphp="misc/init.d/php-fpm-r4.init"
 
 # install
@@ -26,4 +30,8 @@ install -Dm644 "${_CPgsql}" "${DESTDIR}/etc/conf.d/postgresql"
 install -Dm755 "${_IPgsql}" "${DESTDIR}/etc/init.d/postgresql"
 install -Dm644 "${_Csvn}" "${DESTDIR}/etc/conf.d/svn"
 install -Dm755 "${_Isvn}" "${DESTDIR}/etc/init.d/svn"
+install -Dm644 "${_CDistcc}" "${DESTDIR}/etc/conf.d/distccd"
+install -Dm755 "${_IDistcc}" "${DESTDIR}/etc/init.d/distccd"
+install -Dm755 "${_IJenk}" "${DESTDIR}/etc/init.d/jenkins"
+install -Dm644 "${_LJenk}" "${DESTDIR}/etc/logrotate.d/jenkins"
 install -Dm755 "${_Iphp}" "${DESTDIR}/etc/init.d/php-fpm"
