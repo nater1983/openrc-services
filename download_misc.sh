@@ -13,12 +13,23 @@ _aprel=20160303
 source=("${_src_uri}/${_udev}-${_uver}.tar.gz"
 	"${_dev_uri}/gentoo-apache-${_apver}-${_aprel}.tar.bz2")
 
+source_initd=("https://raw.githubusercontent.com/gentoo/gentoo/eca95e70409810b07a07795df3e4a020118479ac/dev-db/redis/files/redis.initd"
+	"https://github.com/dywisor/tlp-portage/raw/maint/app-laptop/tlp/files/tlp-init.openrc-r2")
+
+source_confd=("https://raw.githubusercontent.com/gentoo/gentoo/eca95e70409810b07a07795df3e4a020118479ac/dev-db/redis/files/redis.confd")
+
 # Download to misc folder
 cd misc
-
 for src in "${source[@]}"; do
 	wget -Nc "$src"
 done
 
 cd init.d
-wget -Nc https://github.com/dywisor/tlp-portage/raw/maint/app-laptop/tlp/files/tlp-init.openrc-r2
+for src in "${source_initd[@]}"; do
+	wget -Nc "$src"
+done
+
+cd ../conf.d
+for src in "${source_confd[@]}"; do
+	wget -Nc "$src"
+done

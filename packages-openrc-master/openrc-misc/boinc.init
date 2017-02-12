@@ -151,3 +151,87 @@ stop() {
 	start-stop-daemon -u ${USER} -q -d "${RUNTIMEDIR}" -x boinccmd -- ${password} --quit
 	eend $?
 }
+ Account Key: "
+	read key
+
+	if ! service_started; then
+		"${RC_SERVICE}" start
+	fi
+
+	if need_passwd_arg; then
+		password="--passwd \"$(cat "${RUNTIMEDIR}/gui_rpc_auth.cfg")\""
+	fi
+
+	ebegin "${RC_SVCNAME}: Attaching to project"
+	start-stop-daemon --user "${USER}:${GROUP}" --quiet \
+		--chdir "${RUNTIMEDIR}" --exec "${BOINCCMD}" \
+		-- ${password} --project_attach ${url} ${key}
+	eend $?
+
+	sleep 10s
+	tail "${RUNTIMEDIR}/stdoutdae.txt"
+}
+
+
+stop() {
+	local password=""
+	local stop_timeout="SIGTERM/60/SIGTERM/30/SIGKILL/30"
+
+	env_check || return 1
+
+	if need_passwd_arg; then
+		password="--passwd \"$(cat "${RUNTIMEDIR}/gui_rpc_auth.cfg")\""
+	fi
+
+	ebegin "Stopping ${RC_SVCNAME}"
+	start-stop-daemon --stop --quiet --progress \
+		--retry $stop_timeout \
+		--pidfile "${BOINC_PIDFILE}"
+	eend $?
+}
+
+
+resume() {
+	env_check || return 1
+
+	local password=""
+	local master_urls=( \
+		$("${BOINCCMD}" --get_project_status | \
+		  sed -n 's/\s*master URL: //p') \
+	)
+
+	if need_passwd_arg; then
+		password="--passwd \"$(cat "${RUNTIMEDIR}/gui_rpc_auth.cfg")\""
+	fi
+
+	for url in "${master_urls[@]}"; do
+		ebegin "Resuming $url"
+		start-stop-daemon --user "${USER}:${GROUP}" --quiet \
+			--chdir "${RUNTIMEDIR}" --exec "${BOINCCMD}" \
+			-- ${password} --project ${url} resume
+		eend $?
+	done
+}
+
+
+suspend() {
+	env_check || return 1
+
+	local password=""
+	local master_urls=( \
+		$("${BOINCCMD}" --get_project_status | \
+		  sed -n 's/\s*master URL: //p') \
+	)
+
+	if need_passwd_arg; then
+		password="--passwd \"$(cat "${RUNTIMEDIR}/gui_rpc_auth.cfg")\""
+	fi
+
+	for url in "${master_urls[@]}"; do
+		ebegin "Suspending $url"
+		start-stop-daemon --user "${USER}:${GROUP}" --quiet \
+			--chdir "${RUNTIMEDIR}" --exec "${BOINCCMD}" \
+			-- ${password} --project ${url} suspend
+		eend $?
+	done
+}

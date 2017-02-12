@@ -75,3 +75,17 @@ graceful() {
 	fi
 }
 
+started "${SVCNAME}" ; then
+		eerror "${SVCNAME} isn't running"
+		return 1
+	fi
+	checkconfig || return 1
+
+	ebegin "Gracefully stopping lighttpd"
+	start-stop-daemon --quiet --pidfile "${LIGHTTPD_PID}" \
+		--signal INT
+	if eend $? ; then
+		rm -f "${LIGHTTPD_PID}"
+		start
+	fi
+}

@@ -14,7 +14,7 @@ wget -c https://github.com/manjaro/packages-openrc/archive/master.zip &&
 unzip -uo master.zip
 
 # Directories to download files for
-DIRS_TO_CONSIDER=(openrc-base openrc-desktop openrc-devel openrc-misc openrc-net openrc-video udev-openrc)
+DIRS_TO_CONSIDER=(openrc-accessible openrc-base openrc-desktop openrc-devel openrc-misc openrc-net openrc-video udev-openrc)
 
 cd $UPSTREAM_DIR
 
