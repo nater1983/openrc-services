@@ -1,0 +1,24 @@
+# Redis user.
+#REDIS_USER="redis"
+REDIS_USER="root"
+
+# Redis group.
+#REDIS_GROUP="redis"
+REDIS_GROUP="root"
+
+# Redis configuration file.
+#REDIS_CONF="/etc/redis.conf"
+REDIS_CONF="/etc/redis/redis.conf"
+
+# Redis dump directory.
+REDIS_DIR="/var/lib/redis"
+
+# Redis pid file.
+# (Be sure to change the main redis configuration file as well if you change
+# this from the default.)
+#REDIS_PID="/var/run/redis/redis.pid"
+REDIS_PID="/run/redis_6379.pid"
+
+# Redis options.
+# (Redis expects the first argument to be the configuration file.)
+REDIS_OPTS="${REDIS_CONF}"
