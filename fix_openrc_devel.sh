@@ -12,15 +12,6 @@ _p4='s|STOP_TIMEOUT=120|STOP_TIMEOUT=60|'
 sed -e "${_p1}" -i "${DESTDIR}/etc/init.d/mysqld"
 sed -e "${_p2}" -e "${_p3}" -e "${_p4}" -i "${DESTDIR}/etc/conf.d/mysqld"
 
-# php-fm
-_p1='s|lib/${PHPSLOT}/bin|sbin|g'
-_p2='s|/etc/php/fpm-${PHPSLOT}|/etc/php|'
-_p3='s|/run/php-fpm-${PHPSLOT}|/run/php-fpm|'
-_p4='s|PHPSLOT=${SVCNAME#php-fpm-}||'
-_p5='s|^.*${PHPSLOT}.*||'
-_p6='s|apache2|httpd|'
-sed -e "${_p1}" -e "${_p2}" -e "${_p3}" -e "${_p4}" -e "${_p5}" -e "${_p6}" -i "${DESTDIR}/etc/init.d/php-fpm"
-
 # postgresql
 if [ "$(uname -m)" = x86_64 ]; then
   _p1='s|@LIBDIR@|lib64|g'
