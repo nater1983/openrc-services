@@ -19,6 +19,10 @@ _Csnmptrap=net-analyzer/net-snmp/files/snmptrapd.conf
 _Isnmptrap=net-analyzer/net-snmp/files/snmptrapd.init.2
 _Isendmail=mail-mta/sendmail/files/sendmail
 _Iulogd=app-admin/ulogd/files/ulogd.init
+_IPhpF="misc/init.d/php-fpm-r4.init"
+_CRedS="dev-db/redis/files/redis.confd"
+_IRedS="dev-db/redis/files/redis.initd"
+_Imonit="app-admin/monit/files/monit.initd-5.0-r1"
 
 # install
 install -Dm644 "${_gentoo_uri}/${_Cdcron}" "${DESTDIR}/etc/conf.d/dcron"
@@ -32,3 +36,7 @@ install -Dm755 "${_gentoo_uri}/${_Isnmptrap}" "${DESTDIR}/etc/init.d/snmptrapd"
 install -Dm755 "${_gentoo_uri}/${_Isendmail}" "${DESTDIR}/etc/init.d/sendmail"
 install -Dm644 misc/conf.d/sendmail.confd "${DESTDIR}/etc/conf.d/sendmail"
 install -Dm755 "${_gentoo_uri}/${_Iulogd}" "${DESTDIR}/etc/init.d/ulogd"
+install -Dm755 "${_IPhpF}" "${DESTDIR}/etc/init.d/php-fpm"
+install -Dm644 "${_gentoo_uri}/${_CRedS}" "${DESTDIR}/etc/conf.d/redis"
+install -Dm755 "${_gentoo_uri}/${_IRedS}" "${DESTDIR}/etc/init.d/redis"
+install -Dm755 "${_gentoo_uri}/${_Imonit}" "${DESTDIR}/etc/init.d/monit"

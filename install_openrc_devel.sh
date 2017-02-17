@@ -19,9 +19,6 @@ _CDistcc=${_local_uri}/conf
 _IDistcc=${_local_uri}/init
 _IJenk=${_local_uri}/jenkins.initd
 _LJenk=${_local_uri}/jenkins.logrotate
-_IPhpF="misc/init.d/php-fpm-r4.init"
-_CRedS="misc/conf.d/redis.confd"
-_IRedS="misc/init.d/redis.initd"
 
 # install
 install -Dm644 "${_Cgit}" "${DESTDIR}/etc/conf.d/git-daemon"
@@ -36,6 +33,3 @@ install -Dm644 "${_CDistcc}" "${DESTDIR}/etc/conf.d/distccd"
 install -Dm755 "${_IDistcc}" "${DESTDIR}/etc/init.d/distccd"
 install -Dm755 "${_IJenk}" "${DESTDIR}/etc/init.d/jenkins"
 install -Dm644 "${_LJenk}" "${DESTDIR}/etc/logrotate.d/jenkins"
-install -Dm755 "${_IPhpF}" "${DESTDIR}/etc/init.d/php-fpm"
-install -Dm644 "${_CRedS}" "${DESTDIR}/etc/conf.d/redis"
-install -Dm755 "${_IRedS}" "${DESTDIR}/etc/init.d/redis"

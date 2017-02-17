@@ -42,6 +42,3 @@ sed -e "${_p2}" -i "${DESTDIR}/etc/init.d/svn"
 
 # git-daemon
 sed 's| --base-path=/var/git||' -i "${DESTDIR}/etc/conf.d/git-daemon"
-
-# redis
-sed 's|/usr/sbin/redis-server|/usr/bin/redis-server|' -i "${DESTDIR}/etc/init.d/redis"
