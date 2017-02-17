@@ -4,9 +4,8 @@
 DESTDIR=$1
 
 # ulogd
-_p1='s| --pidfile ${ULOGD_PIDFILE}||g'
-_p2='s| --uid ulogd||g'
-sed -e "${_p1}" -e "${_p2}" -i "${DESTDIR}/etc/init.d/ulogd"
+_p1='s| --uid ulogd||g'
+sed -e "${_p1}" -i "${DESTDIR}/etc/init.d/ulogd"
 
 # php-fpm
 _p1='s|lib/${PHPSLOT}/bin|sbin|g'
