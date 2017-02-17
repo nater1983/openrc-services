@@ -3,7 +3,7 @@
 # /etc/rc.d to OpenRC services
 
 enable_service=()
-already_enabled=()
+running_service=()
 
 # Display exising enabled services
 echo "Currently executable:"
@@ -16,7 +16,7 @@ for file in /etc/rc.d/*; do
 			if ! service "${service_name}" status > /dev/null; then
 				enable_service+=(${service_name})
 			else
-				already_enabled+=(${service_name})
+				running_service+=(${service_name})
 			fi
 		fi
 	fi
@@ -27,7 +27,7 @@ for service in "${enable_service[@]}"; do
 	echo "${service}"
 done
 
-echo -e "\nAlready enabled: "
-for service in "${already_enabled[@]}"; do
+echo -e "\nCurrently running: "
+for service in "${running_service[@]}"; do
 	echo "${service}"
 done
