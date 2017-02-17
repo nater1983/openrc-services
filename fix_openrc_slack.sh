@@ -8,7 +8,7 @@ _p1='s| --pidfile ${ULOGD_PIDFILE}||g'
 _p2='s| --uid ulogd||g'
 sed -e "${_p1}" -e "${_p2}" -i "${DESTDIR}/etc/init.d/ulogd"
 
-# php-fm
+# php-fpm
 _p1='s|lib/${PHPSLOT}/bin|sbin|g'
 _p2='s|/etc/php/fpm-${PHPSLOT}|/etc|'
 _p3='s|/run/php-fpm-${PHPSLOT}|/run/php-fpm|'
