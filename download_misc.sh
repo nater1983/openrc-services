@@ -35,6 +35,7 @@ done
 
 # Extra
 source_devdb=("https://raw.githubusercontent.com/gentoo/gentoo/eca95e70409810b07a07795df3e4a020118479ac/dev-db/redis/files/redis.initd"
-	"https://raw.githubusercontent.com/gentoo/gentoo/eca95e70409810b07a07795df3e4a020118479ac/dev-db/redis/files/redis.confd")
+	"https://raw.githubusercontent.com/gentoo/gentoo/eca95e70409810b07a07795df3e4a020118479ac/dev-db/redis/files/redis.confd"
+	"https://raw.githubusercontent.com/gentoo/gentoo/master/sys-power/thermald/files/thermald")
 
 source_appadmin=("https://raw.githubusercontent.com/gentoo/gentoo/eca95e70409810b07a07795df3e4a020118479ac/app-admin/monit/files/monit.initd-5.0-r1")

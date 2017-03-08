@@ -25,6 +25,7 @@ _IRedS="dev-db/redis/files/redis.initd"
 _Imonit="app-admin/monit/files/monit.initd-5.0-r1"
 _Cf2b="conf.d/fail2ban.confd"
 _If2b="init.d/fail2ban.initd"
+_Itherm="sys-power/thermald/files/thermald"
 
 # install
 install -Dm644 "${_gentoo_uri}/${_Cdcron}" "${DESTDIR}/etc/conf.d/dcron"
@@ -44,3 +45,4 @@ install -Dm755 "${_gentoo_uri}/${_IRedS}" "${DESTDIR}/etc/init.d/redis"
 install -Dm755 "${_gentoo_uri}/${_Imonit}" "${DESTDIR}/etc/init.d/monit"
 install -Dm644 "misc/${_Cf2b}" "${DESTDIR}/etc/conf.d/fail2ban"
 install -Dm755 "misc/${_If2b}" "${DESTDIR}/etc/init.d/fail2ban"
+install -Dm755 "${_gentoo_uri}/${_Itherm}" "${DESTDIR}/etc/init.d/thermald"
