@@ -41,6 +41,6 @@ echo 'ATIEVENTSDOPTS=""' > "${DESTDIR}"/etc/conf.d/atieventsd
 install -Dm644 "${_Cvgl}" "${DESTDIR}"/etc/conf.d/vgl
 install -Dm755 "${_Ivgl}" "${DESTDIR}"/etc/init.d/vgl
 install -Dm755 "${_Svgl}" "${DESTDIR}"/usr/lib${LIBDIRSUFFIX}/vgl-helper.sh
-install -d "${DESTDIR}"/var/lib/VirtualGL
+install -dm750 "${DESTDIR}"/var/lib/VirtualGL
 install -Dm644 "${_Cbumb}" "${DESTDIR}"/etc/conf.d/bumblebee
 install -Dm755 "${_Ibumb}" "${DESTDIR}"/etc/init.d/bumblebee

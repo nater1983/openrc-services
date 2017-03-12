@@ -80,8 +80,9 @@ _Ivpn=${_local_uri}/openvpn-2.1.init
 _Contp=${_local_uri}/openntpd.conf.d-20080406-r6
 _Iontp=${_local_uri}/openntpd.init.d-20080406-r6
 _Ctor=${_local_uri}/tor.confd
-_Itor=${_local_uri}/tor.initd-r7
-_Inginx=${_local_uri}/nginx.initd-r3
+_Itor=${_local_uri}/tor.initd-r8
+_Cnginx=${_local_uri}/nginx.confd
+_Inginx=${_local_uri}/nginx.initd-r4
 
 # install
 install -Dm755 "${_Iautofs}" "${DESTDIR}/etc/init.d/autofs"
@@ -158,6 +159,7 @@ install -Dm755 "${_Cypserv1}" "${DESTDIR}/etc/init.d/ypserv"
 #install -Dm755 "${_gentoo_uri}/${_Iypserv3}" "${DESTDIR}/etc/init.d/rpc.ypxfrd"
 install -Dm644 "${_Ctor}" "${DESTDIR}/etc/conf.d/tor"
 install -Dm755 "${_Itor}" "${DESTDIR}/etc/init.d/tor"
+install -Dm644 "${_Cnginx}" "${DESTDIR}/etc/conf.d/nginx"
 install -Dm755 "${_Inginx}" "${DESTDIR}/etc/init.d/nginx"
 install -Dm644 "misc/gentoo-apache-${_apver}/init/apache2.confd" "${DESTDIR}/etc/conf.d/httpd"
 install -Dm755 "misc/gentoo-apache-${_apver}/init/apache2.initd" "${DESTDIR}/etc/init.d/httpd"

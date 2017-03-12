@@ -5,23 +5,25 @@
 
 _pkgname=polkit
 
-pkgname=polkit-consolekit
+pkgname=polkit-elogind
 pkgver=0.113+29+g3272a98
-pkgrel=4
-pkgdesc="PolyciKit with ConsoleKit support for non-systemd systems"
+pkgrel=1
+pkgdesc="PolyciKit with elogind support for non-systemd systems"
 arch=('i686' 'x86_64')
 license=('LGPL')
 url="http://www.freedesktop.org/wiki/Software/polkit"
-depends=('glib2' 'pam' 'expat' 'js' 'udev')
+depends=('glib2' 'pam' 'expat' 'js' 'elogind')
 makedepends=('intltool' 'gtk-doc' 'gobject-introspection' 'git' 'autoconf-archive')
 provides=("polkit=$pkgver")
-conflicts=('polkit')
+conflicts=('polkit' 'polkit-consolekit')
 options=('!libtool')
 install=polkit.install
 _commit=3272a988655c3236b55bad70e9a3af20857f384b
 #source=("http://www.freedesktop.org/software/polkit/releases/$_pkgname-$pkgver.tar.gz")
-source=("git+https://anongit.freedesktop.org/git/polkit#commit=$_commit")
-sha256sums=('SKIP')
+source=("git+https://anongit.freedesktop.org/git/polkit#commit=$_commit"
+        'polkit-0.114-elogind.patch')
+sha256sums=('SKIP'
+            'e5eb83a8922f1540309ce5884c4bd40b2972aa75778da945e2392501961a860b')
 
 pkgver() {
     cd $_pkgname
@@ -29,7 +31,8 @@ pkgver() {
 }
 
 prepare() {
-    cd $_pkgname
+    cd $_pkgname #-$pkgver
+    patch -Np 1 -i ${srcdir}/polkit-0.114-elogind.patch
     NOCONFIGURE=1 ./autogen.sh
 }
 
@@ -43,6 +46,7 @@ build() {
         --localstatedir=/var \
         --libexecdir=/usr/lib/polkit-1 \
         --enable-libsystemd-login=no \
+        --enable-libelogind=yes \
         --disable-static \
         --enable-gtk-doc \
         --with-os-type=redhat

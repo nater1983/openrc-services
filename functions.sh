@@ -9,6 +9,6 @@ download_source() {
 		[ $? -ne 0 ] && return 1
 		# Get the actual file name
 		filename=${file#*::}
-		wget -Nc $filename
+		wget -c --tries=6 $filename
 	done
 }

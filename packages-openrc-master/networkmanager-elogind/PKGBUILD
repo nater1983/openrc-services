@@ -8,7 +8,7 @@
 
 _pppver=2.4.7
 
-pkgname=networkmanager-consolekit
+pkgname=networkmanager-elogind
 pkgver=1.6.2
 pkgrel=1
 pkgdesc="Network Management daemon"
@@ -16,14 +16,14 @@ arch=('i686' 'x86_64')
 license=('GPL2' 'LGPL2.1')
 url="http://www.gnome.org/projects/NetworkManager/"
 provides=('networkmanager')
-conflicts=('networkmanager')
+conflicts=('networkmanager' 'networkmanager-consolekit')
 makedepends=('intltool' 'dhclient' 'iptables' 'gobject-introspection' 'gtk-doc'
             "ppp=$_pppver" 'modemmanager' 'dbus-glib' 'iproute2' 'nss'
-            'polkit-consolekit' 'wpa_supplicant' 'libsoup' 'eudev-systemd' 'libgudev' 'libmm-glib'
+            'polkit-elogind' 'wpa_supplicant' 'libsoup' 'libgudev' 'libmm-glib'
             'rp-pppoe' 'libnewt' 'libndp' 'libteam' 'vala' 'perl-yaml' 'python-gobject' 'git' 'vala'
             'jansson' 'bluez-libs' 'glib2-docs')
-checkdepends=('libx11' 'python-dbus' 'eudev-systemd')
-depends=('libnm-glib' 'iproute2' 'polkit-consolekit' 'wpa_supplicant' 'libsoup' 'libmm-glib' 'libnewt' 'libndp' 'libteam' 'consolekit' 'eudev')
+checkdepends=('libx11' 'python-dbus' 'elogind')
+depends=('libnm-glib' 'iproute2' 'polkit-elogind' 'wpa_supplicant' 'libsoup' 'libmm-glib' 'libnewt' 'libndp' 'libteam')
 optdepends=('dnsmasq: connection sharing'
             'bluez: Bluetooth support'
             'openresolv: resolvconf support'
@@ -32,29 +32,31 @@ optdepends=('dnsmasq: connection sharing'
             'dhclient: External DHCP client'
             'modemmanager: cellular network support')
 backup=('etc/NetworkManager/NetworkManager.conf')
-
 _commit=037a12f96eff09aa48481fda7ea602a3388afc74  # tags/1.6.2^0
 source=("git+https://anongit.freedesktop.org/git/NetworkManager/NetworkManager#commit=$_commit"
         #"https://download.gnome.org/sources/NetworkManager/${pkgver:0:3}/NetworkManager-$pkgver.tar.xz"
         'NetworkManager.conf'
         '01-org.freedesktop.NetworkManager.settings.modify.system.rules'
         '50-org.freedesktop.NetworkManager.rules'
-        '20-connectivity.conf')
+        '20-connectivity.conf'
+        "elogind1.patch::https://cgit.freedesktop.org/NetworkManager/NetworkManager/patch/?id=360e80b75faead6595ceb4ca8cd91dd7fbaa2f47"
+        "elogind2.patch::https://cgit.freedesktop.org/NetworkManager/NetworkManager/patch/?id=c0d9243e7ebdb6efd5c3e866b03a28cd91b08c83")
 sha256sums=('SKIP'
-            '452e4f77c1de92b1e08f6f58674a6c52a2b2d65b7deb0ba436e9afa91ee15103'
+            'dd2d3a9c8a08ce961e263e1847453890f1b24c72a806d8c83a5b69b227a5ccec'
             '4b815f43de58379e68653d890f529485aec4d2f83f11d050b08b31489d2267c2'
             '02d9f7d836d297d6ddf39482d86a8573b3e41735b408aa2cd6df22048ec5f6c4'
-            '1961f50c8ed2668052bb543a29a11ccf8a5a1226473234a915aa139ceb32d472')
-
-# pkgver() {
-#   cd NetworkManager
-#   git describe | sed 's/-dev/dev/;s/-/+/g'
-# }
+            '477d609aefd991c48aca93dc7ea5a77ebebf46e0481184530cceda4c0d8d72c6'
+            'f008c03a1b500bcdde176505e338280246af9431703951f97a88b4ae484c7e9b'
+            'e845261a468586a360f68f812c5ca69c86a08cb455e3df430bda4cce58307ae4')
 
 prepare() {
   mkdir -p libnm{,-glib}/usr/{include,lib/{girepository-1.0,pkgconfig},share/{gir-1.0,gtk-doc/html,vala/vapi}}
 
   cd NetworkManager
+
+  patch -Np 1 -i ${srcdir}/elogind1.patch
+  patch -Np 1 -i ${srcdir}/elogind2.patch
+
   NOCONFIGURE=1 ./autogen.sh
 }
 
@@ -62,15 +64,6 @@ pkgver() {
   cd NetworkManager
   git describe | sed 's/-dev/dev/;s/-/+/g'
 }
-
-
-# prepare() {
-#   cd NetworkManager-$pkgver
-#
-#   2to3 -w libnm src tools
-#
-#   NOCONFIGURE=1 ./autogen.sh
-# }
 
 build() {
     cd NetworkManager #-$pkgver
@@ -120,14 +113,14 @@ build() {
         --with-pppd-plugin-dir=/usr/lib/pppd/$_pppver \
         --with-pppd=/usr/bin/pppd \
         --with-resolvconf=/usr/bin/resolvconf \
-        --with-session-tracking=ck \
-        --with-suspend-resume=consolekit \
+        --with-session-tracking=elogind \
+        --with-suspend-resume=elogind \
         --with-system-ca-path=/etc/ssl/certs \
         --without-systemd-journal \
         --without-systemd-logind \
         --with-udev-dir=/usr/lib/udev \
         --with-wext \
-        --with-consolekit \
+        --without-consolekit \
         --without-dhcpcd \
         --without-libaudit \
         --without-netconfig \
