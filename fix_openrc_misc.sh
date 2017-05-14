@@ -27,6 +27,50 @@ _p3='s|USE_FLAG_ISCSI||'
 _p4='s|USE_FLAG_RBD||'
 sed -e "${_p1}" -e "${_p2}" -e "${_p3}" -e "${_p4}" -i "${DESTDIR}/etc/init.d/libvirtd"
 
+cat << EOF >> "${DESTDIR}/etc/init.d/libvirtd"
+
+# adapted from SBo's rc.libvirt
+# https://slackbuilds.org/repository/14.2/libraries/libvirt/
+check_running_machines() {
+
+  count=0
+
+  for machine in $(/usr/sbin/virsh list --name --state-running | grep -v ^$) ; do
+    /usr/sbin/virsh shutdown $machine
+  done
+
+  einfo "Waiting for machines"
+
+  while [ $(/usr/sbin/virsh list --name --state-running | grep -v ^$ | wc -l) -gt "0" ]; do
+    if [ "$count" -ge "$TIMEOUT" ];then
+      break
+    fi
+    echo -n "."
+    count=$(expr $count + 1)
+    sleep 1
+  done
+
+  echo ""
+
+  if [ $(/usr/sbin/virsh list --name --state-running | grep -v ^$ | wc -l) -gt "0" ];then
+
+    einfo "The following machines are still running, forcing shutdown: "
+    for machine in $(/usr/sbin/virsh list --name --state-running | grep -v ^$) ; do
+      /usr/sbin/virsh destroy $machine
+      echo -n "$machine "
+    done
+
+    echo ""
+    sleep 2
+  fi
+
+}
+
+stop_pre() {
+	check_running_machines
+}
+EOF
+
 cat << EOF >> "${DESTDIR}/etc/conf.d/libvirtd"
 LIBVIRTD_OPTS=" -f /etc/libvirt/libvirtd.conf -p /var/run/libvirt/libvirtd.pid"
 EOF
