@@ -55,3 +55,7 @@ stop() {
 }
 
 # vim: set ft=gentoo-init-d ts=4 :
+
+}
+
+# vim: set ft=gentoo-init-d ts=4 :
