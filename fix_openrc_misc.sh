@@ -27,6 +27,10 @@ _p3='s|USE_FLAG_ISCSI||'
 _p4='s|USE_FLAG_RBD||'
 sed -e "${_p1}" -e "${_p2}" -e "${_p3}" -e "${_p4}" -i "${DESTDIR}/etc/init.d/libvirtd"
 
+cat << EOF >> "${DESTDIR}/etc/conf.d/libvirtd"
+LIBVIRTD_OPTS=" -f /etc/libvirt/libvirtd.conf -p /var/run/libvirt/libvirtd.pid"
+EOF
+
 # saned
 _p1='s|saned/saned.pid|saned.pid|g'
 sed -e "${_p1}" -i "${DESTDIR}/etc/init.d/saned"
