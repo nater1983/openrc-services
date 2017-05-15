@@ -71,10 +71,6 @@ stop_pre() {
 }
 EOF
 
-cat << EOF >> "${DESTDIR}/etc/conf.d/libvirtd"
-LIBVIRTD_OPTS=" -f /etc/libvirt/libvirtd.conf -p /var/run/libvirt/libvirtd.pid"
-EOF
-
 # saned
 _p1='s|saned/saned.pid|saned.pid|g'
 sed -e "${_p1}" -i "${DESTDIR}/etc/init.d/saned"
