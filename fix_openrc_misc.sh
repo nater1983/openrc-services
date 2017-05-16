@@ -68,6 +68,9 @@ check_running_machines() {
 
 stop_pre() {
 	check_running_machines
+	for network in $(/usr/sbin/virsh net-list | tail -n +3 | awk '{print $1}'); do
+		/usr/sbin/virsh net-destroy "$network"
+	done
 }
 EOF
 
