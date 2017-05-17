@@ -27,7 +27,7 @@ _p3='s|USE_FLAG_ISCSI||'
 _p4='s|USE_FLAG_RBD||'
 sed -e "${_p1}" -e "${_p2}" -e "${_p3}" -e "${_p4}" -i "${DESTDIR}/etc/init.d/libvirtd"
 
-cat << EOF >> "${DESTDIR}/etc/init.d/libvirtd"
+cat << "EOF" >> "${DESTDIR}/etc/init.d/libvirtd"
 
 # adapted from SBo's rc.libvirt
 # https://slackbuilds.org/repository/14.2/libraries/libvirt/
