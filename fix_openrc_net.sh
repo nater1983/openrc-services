@@ -15,9 +15,8 @@ _p5='s|apache2.pid|httpd.pid|'
 _p6='s|apache2 >/dev/null|httpd >/dev/null|'
 _p7='s|apache2|httpd|g'
 _p8='s|/run/apache_ssl_mutex|/run/httpd|'
-_p9='/# Use start stop daemon to apply system limits #347301 /d'
-_p10='s|start-stop-daemon --start -- ${APACHE2} ${APACHE2_OPTS} -k start|${APACHE2} ${APACHE2_OPTS} -k start|'
-sed -e "${_p1}" -e "${_p2}" -e "${_p4}" -e "${_p5}" -e "${_p6}" -e "${_p8}" -e "${_p9}" -e "${_p10}" -i "${DESTDIR}/etc/init.d/httpd"
+_p9='s|start-stop-daemon --start|start-stop-daemon --start --pidfile ${PIDFILE}|'
+sed -e "${_p1}" -e "${_p2}" -e "${_p4}" -e "${_p5}" -e "${_p6}" -e "${_p8}" -e "${_p9}" -i "${DESTDIR}/etc/init.d/httpd"
 sed -e "${_p2}" -e "${_p4}" -e "${_p5}" -e "${_p7}" -i "${DESTDIR}/etc/conf.d/httpd"
 
 # named
