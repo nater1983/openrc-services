@@ -16,6 +16,10 @@ sed -e "${_p1}" -e "${_p2}" -i "${DESTDIR}/etc/init.d/cupsd"
 _p1='s|/usr/libexec|/usr/sbin|g'
 sed -e "${_p1}" -i "${DESTDIR}/etc/init.d/fcron"
 
+# ntpd
+_p1='s| -u ntp:ntp||'
+sed -e "${_p1}" -i "${DESTDIR}/etc/conf.d/ntpd"
+
 # vboxservice
 _p1='s|vboxguest-service|VBoxService|'
 sed -e "${_p1}" -i "${DESTDIR}/etc/init.d/vboxservice"
