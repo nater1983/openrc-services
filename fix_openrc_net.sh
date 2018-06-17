@@ -47,4 +47,4 @@ sed -e "${_p1}" -i "${DESTDIR}/etc/init.d/vsftpd"
 _p1='/checkpath -q/d'
 _p2='/--user vnstat --group vnstat/d'
 _p3='s|/usr/bin/vnstatd|/usr/sbin/vnstatd|'
-sed -e "${_p1}" -e "${_p2}" -i "${DESTDIR}/etc/init.d/vnstatd"
+sed -e "${_p1}" -e "${_p2}" -e "${_p3}" -i "${DESTDIR}/etc/init.d/vnstatd"
