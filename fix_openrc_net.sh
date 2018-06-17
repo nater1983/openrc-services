@@ -42,3 +42,8 @@ sed -e "${_p1}" -i "${DESTDIR}/etc/conf.d/saslauthd"
 # vsftpd
 _p1='s|/etc/vsftpd|/etc|g'
 sed -e "${_p1}" -i "${DESTDIR}/etc/init.d/vsftpd"
+
+# vnstatd
+_p1='/checkpath -q/d'
+_p2='/--user vnstat --group vnstat/d'
+sed -e "${_p1}" -e "${_p2}" -i "${DESTDIR}/etc/init.d/vnstatd"
