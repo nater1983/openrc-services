@@ -4,6 +4,8 @@ Currently these can be used on Slackware Linux.
 
 ### Links
 
-https://slackbuilds.org/repository/14.2/system/openrc-services/
+* Slackbuilds: https://slackbuilds.org/repository/14.2/system/openrc-services/
 
-http://docs.slackware.com/howtos:general_admin:openrc
+* Documentation: http://docs.slackware.com/howtos:general_admin:openrc
+
+* Originally hosted at: https://bitbucket.org/aadityabagga/openrc-services-ng
