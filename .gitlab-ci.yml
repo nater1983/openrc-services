@@ -2,4 +2,4 @@ build:
   stage: build
   script:
     - mkdir test
-    - install.sh test
+    - bash install.sh test
