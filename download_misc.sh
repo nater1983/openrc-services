@@ -13,9 +13,9 @@ _aprel=20160303
 source=("${_src_uri}/${_udev}-${_uver}.tar.gz"
 	"${_dev_uri}/gentoo-apache-${_apver}-${_aprel}.tar.bz2")
 
-source_initd=("https://github.com/dywisor/tlp-portage/raw/maint/app-laptop/tlp/files/tlp-init.openrc-r2")
+source_initd=("https://github.com/dywisor/tlp-portage/raw/maint/app-laptop/tlp/files/tlp-init.openrc-r2" "https://cgit.gentoo.org/user/lmiphay.git/plain/dev-db/influxdb/files/influxdb.init.d")
 
-source_confd=()
+source_confd=("https://cgit.gentoo.org/user/lmiphay.git/plain/dev-db/influxdb/files/influxdb.conf.d")
 
 # Download to misc folder
 cd misc
