@@ -1,6 +1,8 @@
 #!/bin/sh
 # install.sh: installs the openrc scripts into /etc/init.d and /etc/conf.d
 
+set -e  # exit on error
+
 DESTDIR=$1
 
 echo "Installing OpenRC services..."
