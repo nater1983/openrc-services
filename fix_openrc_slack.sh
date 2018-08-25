@@ -3,6 +3,11 @@
 
 DESTDIR=$1
 
+# dcron
+# starting slackware current 14.2+
+_p1='/ebegin "Starting \${SVCNAME}"/a \\t# adapted from \/etc\/rc.d\/rc.crond \n\tmkdir -p /run/cron'
+sed -e "${_p1}" -i "${DESTDIR}/etc/init.d/dcron"
+
 # ulogd
 _p1='s| --uid ulogd||g'
 sed -e "${_p1}" -i "${DESTDIR}/etc/init.d/ulogd"
