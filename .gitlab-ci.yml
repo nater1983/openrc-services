@@ -1,5 +1,11 @@
-build:
-  stage: build
+fetch:
+  stage: fetch
+  script:
+    - bash download.sh
+    - bash download_misc.sh
+
+install:
+  stage: install
   script:
     - mkdir test
     - bash install.sh test
