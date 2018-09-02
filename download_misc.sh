@@ -13,9 +13,9 @@ _aprel=20160303
 source=("${_src_uri}/${_udev}-${_uver}.tar.gz"
 	"${_dev_uri}/gentoo-apache-${_apver}-${_aprel}.tar.bz2")
 
-source_initd=("https://github.com/dywisor/tlp-portage/raw/maint/app-laptop/tlp/files/tlp-init.openrc-r2" "https://cgit.gentoo.org/user/lmiphay.git/plain/dev-db/influxdb/files/influxdb.init.d")
+source_initd=("https://github.com/dywisor/tlp-portage/raw/maint/app-laptop/tlp/files/tlp-init.openrc-r2")
 
-source_confd=("https://cgit.gentoo.org/user/lmiphay.git/plain/dev-db/influxdb/files/influxdb.conf.d")
+source_confd=()
 
 # Download to misc folder
 cd misc
@@ -32,10 +32,3 @@ cd ../conf.d
 for src in "${source_confd[@]}"; do
 	wget -Nc "$src"
 done
-
-# Extra
-source_devdb=("https://raw.githubusercontent.com/gentoo/gentoo/eca95e70409810b07a07795df3e4a020118479ac/dev-db/redis/files/redis.initd"
-	"https://raw.githubusercontent.com/gentoo/gentoo/eca95e70409810b07a07795df3e4a020118479ac/dev-db/redis/files/redis.confd"
-	"https://raw.githubusercontent.com/gentoo/gentoo/master/sys-power/thermald/files/thermald")
-
-source_appadmin=("https://raw.githubusercontent.com/gentoo/gentoo/eca95e70409810b07a07795df3e4a020118479ac/app-admin/monit/files/monit.initd-5.0-r1")
