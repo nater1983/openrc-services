@@ -1,8 +1,11 @@
 build:
   stage: build
-  before_script:
-    - bash download.sh
+  script:
+    - bash download-via-git.sh
     - bash download_misc.sh
+
+test:
+  stage: test
   script:
     - mkdir test
     - bash install.sh test
