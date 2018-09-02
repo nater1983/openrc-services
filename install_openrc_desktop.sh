@@ -2,33 +2,31 @@
 # install_openrc_desktop.sh
 
 DESTDIR=$1
-DOWNLOAD_DIR=packages-openrc-master
 
-_local_uri="${DOWNLOAD_DIR}/openrc-desktop"
+_gentoo_uri="gentoo"
 
 # files
-_Cacpi=${_local_uri}/acpid-2.0.16-conf.d
-_Iacpi=${_local_uri}/acpid-2.0.26-init.d
-_Calsa=${_local_uri}/alsasound.confd-r4
-_Ialsa=${_local_uri}/alsasound.initd-r6
-_Ick=${_local_uri}/consolekit-1.0.0.initd
-_Icgm=${_local_uri}/cgmanager.initd-r1
-_Icgp=${_local_uri}/cgproxy.initd-r1
-_Cxdm=${_local_uri}/xdm.confd-4
-_Ixdm1=${_local_uri}/xdm.initd-11
-_Ixdm2=${_local_uri}/xdm-setup.initd-1
-_Sxdm=${_local_uri}/startDM.sh
-_Cgpm=${_local_uri}/gpm.conf.d
-_Igpm=${_local_uri}/gpm.rc6-2
-_Cblue=${_local_uri}/rfcomm-conf.d
-_Iblue1=${_local_uri}/rfcomm-init.d-r2
-_Iblue2=${_local_uri}/bluetooth-init.d-r3
-_Cwpa=${_local_uri}/wpa_supplicant-conf.d
-_Iwpa=${_local_uri}/wpa_supplicant-init.d
-_Swpa=${_local_uri}/wpa_cli.sh
-_CNM=${_local_uri}/conf.d.NetworkManager
-_INM=${_local_uri}/init.d.NetworkManager
-_SNM=${_local_uri}/10-openrc-status-r4
+_Cacpi=${_gentoo_uri}/sys-power/acpid/files/acpid-2.0.16-conf.d
+_Iacpi=${_gentoo_uri}/sys-power/acpid/files/acpid-2.0.26-init.d
+_Calsa=${_gentoo_uri}/media-sound/alsa-utils/files/alsasound.confd-r4
+_Ialsa=${_gentoo_uri}/media-sound/alsa-utils/files/alsasound.initd-r6
+_Ick=${_gentoo_uri}/sys-auth/consolekit/files/consolekit-1.0.0.initd
+_Icgm=${_gentoo_uri}/app-admin/cgmanager/files/cgmanager.initd-r1
+_Icgp=${_gentoo_uri}/app-admin/cgmanager/files/cgproxy.initd-r1
+_Cxdm=${_gentoo_uri}/x11-base/xorg-server/files/xdm.confd-4
+_Ixdm1=${_gentoo_uri}/x11-base/xorg-server/files/xdm.initd-11
+_Ixdm2=${_gentoo_uri}/x11-base/xorg-server/files/xdm-setup.initd-1
+_Sxdm=${_gentoo_uri}/x11-apps/xinit/files/startDM.sh
+_Cgpm=${_gentoo_uri}/sys-libs/gpm/files/gpm.conf.d
+_Igpm=${_gentoo_uri}/sys-libs/gpm/files/gpm.rc6-2
+_Iblue1=${_gentoo_uri}/net-wireless/bluez/files/rfcomm-init.d-r2
+_Iblue2=${_gentoo_uri}/net-wireless/bluez/files/bluetooth-init.d-r4
+_Cwpa=${_gentoo_uri}/net-wireless/wpa_supplicant/files/wpa_supplicant-conf.d
+_Iwpa=${_gentoo_uri}/net-wireless/wpa_supplicant/files/wpa_supplicant-init.d
+_Swpa=${_gentoo_uri}/net-wireless/wpa_supplicant/files/wpa_cli.sh
+_CNM=${_gentoo_uri}/net-misc/networkmanager/files/conf.d.NetworkManager
+_INM=${_gentoo_uri}/net-misc/networkmanager/files/init.d.NetworkManager-r1
+_SNM=${_gentoo_uri}/net-misc/networkmanager/files/10-openrc-status-r4
 
 # install
 install -Dm644 "${_Cacpi}" "${DESTDIR}/etc/conf.d/acpid"
@@ -44,7 +42,6 @@ install -Dm755 "${_Ixdm2}" "${DESTDIR}/etc/init.d/xdm-setup"
 install -Dm755 "${_Sxdm}" "${DESTDIR}/etc/X11/startDM.sh"
 install -Dm644 "${_Cgpm}" "${DESTDIR}/etc/conf.d/gpm"
 install -Dm755 "${_Igpm}" "${DESTDIR}/etc/init.d/gpm"
-install -Dm644 "${_Cblue}" "${DESTDIR}/etc/conf.d/rfcomm"
 install -Dm755 "${_Iblue1}" "${DESTDIR}/etc/init.d/rfcomm"
 install -Dm755 "${_Iblue2}" "${DESTDIR}/etc/init.d/bluetooth"
 install -Dm644 "${_Cwpa}" "${DESTDIR}/etc/conf.d/wpa_supplicant"

@@ -2,68 +2,77 @@
 # install_openrc_misc.sh
 
 DESTDIR=$1
-DOWNLOAD_DIR=packages-openrc-master
 
-_local_uri="${DOWNLOAD_DIR}/openrc-misc"
+_gentoo_uri="gentoo"
 
 # files
-_Ifrcon=${_local_uri}/fcron.init.3
-_Crsysl=${_local_uri}/rsyslog.confd-r1
-_Irsysl=${_local_uri}/rsyslog.initd-r1
-_Csane=${_local_uri}/saned.confd
-_Isane=${_local_uri}/saned.initd
-_Ifuse=${_local_uri}/fuse.init
-_Cmeta=${_local_uri}/metalog.confd
-_Imeta=${_local_uri}/metalog.initd
-_Csyslog=${_local_uri}/syslog-ng.confd
-_Isyslog=${_local_uri}/syslog-ng.rc6
-_Clirc1=${_local_uri}/lircd.conf.4
-_Clirc2=${_local_uri}/irexec-confd
-_Ilirc1=${_local_uri}/lircd-0.8.6-r2
-_Ilirc2=${_local_uri}/irexec-initd-0.8.6-r2
-_Ilirc3=${_local_uri}/lircmd
-_Isens1=${_local_uri}/sensord-4-init.d
-_Isens2=${_local_uri}/fancontrol-init.d-2
-_Isens3=${_local_uri}/lm_sensors-3-init.d
-_Ccpu=${_local_uri}/conf.d-r2
-_Icpu=${_local_uri}/init.d-r4
-_Cntp1=${_local_uri}/ntpd.confd
-_Cntp2=${_local_uri}/ntp-client.confd
-_Cntp3=${_local_uri}/sntp.confd
-_Intp1=${_local_uri}/ntpd.rc-r1
-_Intp2=${_local_uri}/ntp-client.rc
-_Intp3=${_local_uri}/sntp.rc
-_Icups=${_local_uri}/cupsd.init.d-r2
-_Ccon=${_local_uri}/connman.confd
-_Icon=${_local_uri}/connman.initd2
-_Chaveg=${_local_uri}/haveged-conf.d
-_Ihaveg=${_local_uri}/haveged-init.d.3
-_Csalt_mtr=${_local_uri}/master-confd-1
-_Isalt_mtr=${_local_uri}/master-initd-4
-_Csalt_min=${_local_uri}/minion-confd-1
-_Isalt_min=${_local_uri}/minion-initd-4
-_Csalt_sync=${_local_uri}/syndic-confd-1
-_Isalt_sync=${_local_uri}/syndic-initd-4
-_Impd=${_local_uri}/mpd2.init
-_Chdparm=${_local_uri}/hdparm-conf.d.3
-_Ihdparm=${_local_uri}/hdparm-init-8
-_Cbit=${_local_uri}/bitlbee.confd-r1
-_Ibit=${_local_uri}/bitlbee.initd-r1
-_Itherm=${_local_uri}/thermald.initd
-_Ixe=${_local_uri}/xe-daemon.initd
-_Ivbox=${_local_uri}/virtualbox-guest-additions-8.initd
-_CClam=${_local_uri}/clamd.conf-r1
-_IClam=${_local_uri}/clamd.initd-r6
-_CBoinc=${_local_uri}/boinc.conf
-_IBoinc=${_local_uri}/boinc.init
-_CAt=${_local_uri}/atd.confd
-_IAt=${_local_uri}/atd.rc8
-_Clibvirt=${_local_uri}/libvirtd.confd-r5
-_Ilibvirt=${_local_uri}/libvirtd.init-r16
-_Ivirtlock=${_local_uri}/virtlockd.init-r1
-_Ivirtlog=${_local_uri}/virtlogd.init-r1
+_Iacron=${_gentoo_uri}/sys-process/anacron/files/anacron.rc6
+_Ifrcon=${_gentoo_uri}/sys-process/fcron/files/fcron.init.4
+_Crsysl=${_gentoo_uri}/app-admin/rsyslog/files/rsyslog.confd-r1
+_Irsysl=${_gentoo_uri}/app-admin/rsyslog/files/rsyslog.initd-r1
+_Csane=${_gentoo_uri}/media-gfx/sane-backends/files/saned.confd
+_Isane=${_gentoo_uri}/media-gfx/sane-backends/files/saned.initd
+_Ifuse=${_gentoo_uri}/sys-fs/fuse/files/fuse.init
+_Cmeta=${_gentoo_uri}/app-admin/metalog/files/metalog.confd
+_Imeta=${_gentoo_uri}/app-admin/metalog/files/metalog.initd
+_Csyslog=${_gentoo_uri}/app-admin/syslog-ng/files/3.7/syslog-ng.confd
+_Isyslog=${_gentoo_uri}/app-admin/syslog-ng/files/3.7/syslog-ng.rc6
+_Clirc1=${_gentoo_uri}/app-misc/lirc/files/lircd.conf.4
+_Clirc2=${_gentoo_uri}/app-misc/lirc/files/irexec-confd
+_Ilirc1=${_gentoo_uri}/app-misc/lirc/files/lircd-0.8.6-r2
+_Ilirc2=${_gentoo_uri}/app-misc/lirc/files/irexec-initd-0.8.6-r2
+_Ilirc3=${_gentoo_uri}/app-misc/lirc/files/lircmd
+_Csens=${_gentoo_uri}/sys-apps/lm_sensors/files/sensord.confd
+_Csens1=${_gentoo_uri}/sys-apps/lm_sensors/files/fancontrol.confd
+_Csens2=${_gentoo_uri}/sys-apps/lm_sensors/files/lm_sensors.confd
+_Isens1=${_gentoo_uri}/sys-apps/lm_sensors/files/sensord.initd
+_Isens2=${_gentoo_uri}/sys-apps/lm_sensors/files/fancontrol.initd
+_Isens3=${_gentoo_uri}/sys-apps/lm_sensors/files/lm_sensors.initd
+_Ccpu=${_gentoo_uri}/sys-power/cpupower/files/conf.d-r2
+_Icpu=${_gentoo_uri}/sys-power/cpupower/files/init.d-r4
+_Cntp1=${_gentoo_uri}/net-misc/ntp/files/ntpd.confd
+_Cntp2=${_gentoo_uri}/net-misc/ntp/files/ntp-client.confd
+_Cntp3=${_gentoo_uri}/net-misc/ntp/files/sntp.confd
+_Intp1=${_gentoo_uri}/net-misc/ntp/files/ntpd.rc-r1
+_Intp2=${_gentoo_uri}/net-misc/ntp/files/ntp-client.rc
+_Intp3=${_gentoo_uri}/net-misc/ntp/files/sntp.rc
+_Icups=${_gentoo_uri}/net-print/cups/files/cupsd.init.d-r3
+_Ccon=${_gentoo_uri}/net-misc/connman/files/connman.confd
+_Icon=${_gentoo_uri}/net-misc/connman/files/connman.initd2
+_Chaveg=${_gentoo_uri}/sys-apps/haveged/files/haveged-conf.d
+_Ihaveg=${_gentoo_uri}/sys-apps/haveged/files/haveged-init.d.3
+_Csalt_mtr=${_gentoo_uri}/app-admin/salt/files/master-confd-1
+_Isalt_mtr=${_gentoo_uri}/app-admin/salt/files/master-initd-4
+_Csalt_min=${_gentoo_uri}/app-admin/salt/files/minion-confd-1
+_Isalt_min=${_gentoo_uri}/app-admin/salt/files/minion-initd-4
+_Csalt_sync=${_gentoo_uri}/app-admin/salt/files/syndic-confd-1
+_Isalt_sync=${_gentoo_uri}/app-admin/salt/files/syndic-initd-4
+_Impd=${_gentoo_uri}/media-sound/mpd/files/mpd-0.20.4.init
+_Chdparm=${_gentoo_uri}/sys-apps/hdparm/files/hdparm-conf.d.3
+_Ihdparm=${_gentoo_uri}/sys-apps/hdparm/files/hdparm-init-8
+_Cbit=${_gentoo_uri}/net-im/bitlbee/files/bitlbee.confd-r1
+_Ibit=${_gentoo_uri}/net-im/bitlbee/files/bitlbee.initd-r1
+_Itherm=${_gentoo_uri}/sys-power/thermald/files/thermald
+_Ixe=${_gentoo_uri}/app-emulation/xe-guest-utilities/files/xe-daemon.initd
+_Ivbox=${_gentoo_uri}/app-emulation/virtualbox-guest-additions/files/virtualbox-guest-additions-8.initd
+_CClam=${_gentoo_uri}/app-antivirus/clamav/files/clamd.conf-r1
+_IClam=${_gentoo_uri}/app-antivirus/clamav/files/clamd.initd-r6
+_CBoinc=${_gentoo_uri}/sci-misc/boinc/files/boinc.conf
+_IBoinc=${_gentoo_uri}/sci-misc/boinc/files/boinc.init.in
+_CAt=${_gentoo_uri}/sys-process/at/files/atd.confd
+_IAt=${_gentoo_uri}/sys-process/at/files/atd.rc8
+_Clibvirt=${_gentoo_uri}/app-emulation/libvirt/files/libvirtd.confd-r5
+_Ilibvirt=${_gentoo_uri}/app-emulation/libvirt/files/libvirtd.init-r16
+_Ivirtlock=${_gentoo_uri}/app-emulation/libvirt/files/virtlockd.init-r1
+_Ivirtlog=${_gentoo_uri}/app-emulation/libvirt/files/virtlogd.init-r1
+_CPulseAudio=${_gentoo_uri}/media-sound/pulseaudio/files/pulseaudio.conf.d
+_IPulseAudio=${_gentoo_uri}/media-sound/pulseaudio/files/pulseaudio.init.d-5
+_Cinflux=${_gentoo_uri}/dev-db/influxdb/files/influxdb.confd
+_Iinflux=${_gentoo_uri}/dev-db/influxdb/files/influxdb.rc
 
 # install
+install -Dm755 "${_Iacron}" "${DESTDIR}/etc/init.d/anacron"
+install -Dm755 "${_Ifrcon}" "${DESTDIR}/etc/init.d/fcron"
 install -Dm644 "${_Cbit}" "${DESTDIR}/etc/conf.d/bitlbee"
 install -Dm755 "${_Ibit}" "${DESTDIR}/etc/init.d/bitlbee"
 install -Dm644 "${_Ccpu}" "${DESTDIR}/etc/conf.d/cpupower"
@@ -71,7 +80,6 @@ install -Dm755 "${_Icpu}" "${DESTDIR}/etc/init.d/cpupower"
 install -Dm644 "${_Ccon}" "${DESTDIR}/etc/conf.d/connman"
 install -Dm755 "${_Icon}" "${DESTDIR}/etc/init.d/connman"
 install -Dm755 "${_Icups}" "${DESTDIR}/etc/init.d/cupsd"
-install -Dm755 "${_Ifrcon}" "${DESTDIR}/etc/init.d/fcron"
 install -Dm644 "${_Cntp1}" "${DESTDIR}/etc/conf.d/ntpd"
 install -Dm755 "${_Intp1}" "${DESTDIR}/etc/init.d/ntpd"
 install -Dm644 "${_Cntp2}" "${DESTDIR}/etc/conf.d/ntp-client"
@@ -87,6 +95,9 @@ install -Dm644 "${_Cmeta}" "${DESTDIR}/etc/conf.d/metalog"
 install -Dm755 "${_Imeta}" "${DESTDIR}/etc/init.d/metalog"
 install -Dm644 "${_Csyslog}" "${DESTDIR}/etc/conf.d/syslog-ng"
 install -Dm755 "${_Isyslog}" "${DESTDIR}/etc/init.d/syslog-ng"
+install -Dm644 "${_Csens}" "${DESTDIR}/etc/conf.d/sensord"
+install -Dm644 "${_Csens1}" "${DESTDIR}/etc/conf.d/fancontrol"
+install -Dm644 "${_Csens2}" "${DESTDIR}/etc/conf.d/lm_sensors"
 install -Dm755 "${_Isens1}" "${DESTDIR}/etc/init.d/sensord"
 install -Dm755 "${_Isens2}" "${DESTDIR}/etc/init.d/fancontrol"
 install -Dm755 "${_Isens3}" "${DESTDIR}/etc/init.d/lm_sensors"
@@ -119,11 +130,9 @@ install -Dm644 "${_Clibvirt}" "${DESTDIR}/etc/conf.d/libvirtd"
 install -Dm755 "${_Ilibvirt}" "${DESTDIR}/etc/init.d/libvirtd"
 install -Dm755 "${_Ivirtlock}" "${DESTDIR}/etc/init.d/virtlockd"
 install -Dm755 "${_Ivirtlog}" "${DESTDIR}/etc/init.d/virtlogd"
+install -Dm644 "${_CPulseAudio}" "${DESTDIR}/etc/conf.d/pulseaudio"
+install -Dm755 "${_IPulseAudio}" "${DESTDIR}/etc/init.d/pulseaudio"
+install -Dm644 "${_Cinflux}" "${DESTDIR}/etc/conf.d/influxdb"
+install -Dm755 "${_Iinflux}" "${DESTDIR}/etc/init.d/influxdb"
 install -Dm755 "misc/init.d/zfs.initd" "${DESTDIR}/etc/init.d/zfs"
-install -Dm755 "misc/init.d/anacron.rc6" "${DESTDIR}/etc/init.d/anacron"
-install -Dm644 "misc/conf.d/sensord-conf.d" "${DESTDIR}/etc/conf.d/sensord"
-install -Dm644 "misc/conf.d/pulseaudio.conf.d" "${DESTDIR}/etc/conf.d/pulseaudio"
-install -Dm755 "misc/init.d/pulseaudio.init.d-5" "${DESTDIR}/etc/init.d/pulseaudio"
-install -Dm755 "misc/init.d/netdata-openrc" "${DESTDIR}/etc/init.d/netdata"
-install -Dm644 "misc/conf.d/influxdb.conf.d" "${DESTDIR}/etc/conf.d/influxdb"
-install -Dm755 "misc/init.d/influxdb.init.d" "${DESTDIR}/etc/init.d/influxdb"
+install -Dm755 "misc/init.d/netdata-openrc.initd" "${DESTDIR}/etc/init.d/netdata"

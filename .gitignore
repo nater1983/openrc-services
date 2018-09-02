@@ -1,4 +1,15 @@
-*.swp
-test
-*.zip
 *~
+*.swp
+
+# tarballs
+*.zip
+*.tar.*z*
+
+# extra gentoo files
+*.patch
+*.diff
+
+# local folders and files
+/test
+/logs
+/rsync-include-list

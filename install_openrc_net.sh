@@ -2,87 +2,82 @@
 # install_openrc_net.sh
 
 DESTDIR=$1
-DOWNLOAD_DIR=packages-openrc-master
 
-_local_uri="${DOWNLOAD_DIR}/openrc-net"
 _gentoo_uri="gentoo"
 _apver=2.4.18-r1
 
 # files
-_Cbind=${_local_uri}/named.confd-r7
-_Ibind=${_local_uri}/named.init-r13
+_Cbind=${_gentoo_uri}/net-dns/bind/files/named.confd-r7
+_Ibind=${_gentoo_uri}/net-dns/bind/files/named.init-r13
 _Csasl=${_gentoo_uri}/dev-libs/cyrus-sasl/files/saslauthd-2.1.26.conf
-_Isasl=${_local_uri}/saslauthd2.rc7
-_Cdhcp1=${_local_uri}/dhcpd.conf2
-_Cdhcp2=${_local_uri}/dhcrelay.conf
-_Cdhcp3=${_local_uri}/dhcrelay6.conf
-_Idhcp1=${_local_uri}/dhcpd.init5
-_Idhcp2=${_local_uri}/dhcrelay.init3
-_Chost=${_local_uri}/hostapd-conf.d
-_Ihost=${_local_uri}/hostapd-init.d
-_Cip1=${_local_uri}/iptables-1.4.13.confd
-_Cip2=${_local_uri}/ip6tables-1.4.13.confd
-_Iip=${_local_uri}/iptables-1.4.13-r1.init
+_Isasl=${_gentoo_uri}/dev-libs/cyrus-sasl/files/saslauthd2.rc7
+_Cdhcp1=${_gentoo_uri}/net-misc/dhcp/files/dhcpd.conf2
+_Cdhcp2=${_gentoo_uri}/net-misc/dhcp/files/dhcrelay.conf
+_Cdhcp3=${_gentoo_uri}/net-misc/dhcp/files/dhcrelay6.conf
+_Idhcp1=${_gentoo_uri}/net-misc/dhcp/files/dhcpd.init5
+_Idhcp2=${_gentoo_uri}/net-misc/dhcp/files/dhcrelay.init3
+_Chost=${_gentoo_uri}/net-wireless/hostapd/files/hostapd-conf.d
+_Ihost=${_gentoo_uri}/net-wireless/hostapd/files/hostapd-init.d
+_Cip1=${_gentoo_uri}/net-firewall/iptables/files/iptables-1.4.13.confd
+_Cip2=${_gentoo_uri}/net-firewall/iptables/files/ip6tables-1.4.13.confd
+_Iip=${_gentoo_uri}/net-firewall/iptables/files/iptables-1.4.13-r1.init
 #_Ikrb1=app-crypt/mit-krb5/files/mit-krb5kadmind.initd-r1
 #_Ikrb2=app-crypt/mit-krb5/files/mit-krb5kdc.initd-r1
 #_Ikrb3=app-crypt/mit-krb5/files/mit-krb5kpropd.initd-r1
 #_Clight=www-servers/lighttpd/files/lighttpd.confd
 #_Ilight=www-servers/lighttpd/files/lighttpd.initd
-_Cnfs=${_local_uri}/nfs.confd
-_Infs=${_local_uri}/nfs.initd
-_Cnfsc=${_local_uri}/nfsclient.confd
-_Infsc=${_local_uri}/nfsclient.initd
-_Iidmapd=${_local_uri}/rpc.idmapd.initd
-_Ipipefs=${_local_uri}/rpc.pipefs.initd
-_Igssd=${_local_uri}/rpc.gssd.initd
-_Isvcgssd=${_local_uri}/rpc.svcgssd.initd
-_Istatd=${_local_uri}/rpc.statd.initd
-_Cldap=${_local_uri}/slapd-confd-2.4.28-r1
-_Ildap=${_local_uri}/slapd-initd-2.4.40-r2
+_Cnfs=${_gentoo_uri}/net-fs/nfs-utils/files/nfs.confd
+_Infs=${_gentoo_uri}/net-fs/nfs-utils/files/nfs.initd
+_Cnfsc=${_gentoo_uri}/net-fs/nfs-utils/files/nfsclient.confd
+_Infsc=${_gentoo_uri}/net-fs/nfs-utils/files/nfsclient.initd
+_Iidmapd=${_gentoo_uri}/net-fs/nfs-utils/files/rpc.idmapd.initd
+_Ipipefs=${_gentoo_uri}/net-fs/nfs-utils/files/rpc.pipefs.initd
+_Igssd=${_gentoo_uri}/net-fs/nfs-utils/files/rpc.gssd.initd
+_Isvcgssd=${_gentoo_uri}/net-fs/nfs-utils/files/rpc.svcgssd.initd
+_Istatd=${_gentoo_uri}/net-fs/nfs-utils/files/rpc.statd.initd
+_Cldap=${_gentoo_uri}/net-nds/openldap/files/slapd-confd-2.4.28-r1
+_Ildap=${_gentoo_uri}/net-nds/openldap/files/slapd-initd-2.4.40-r2
 #_Islp=net-nds/openldap/files/slpd-init
-_Cssh=${_local_uri}/sshd.confd
-_Issh=${_local_uri}/sshd.rc6.4
-_Ipolip=${_local_uri}/polipo.initd-5
-_Ipostfix=${_local_uri}/postfix.rc6.2.7
-_Ipriv=${_local_uri}/privoxy.initd-3
-_Cquota=${_local_uri}/quota.confd
-_Iquota1=${_local_uri}/quota.rc7
-_Iquota2=${_local_uri}/rpc.rquotad.initd
-_Irpc=${_local_uri}/rpcbind.initd
-_Crsync=${_local_uri}/rsyncd.conf.d
-_Irsync=${_local_uri}/rsyncd.init.d-r1
-_Csmb=${_local_uri}/samba4.confd
-_Ismb=${_local_uri}/samba4.initd-r1
-_Csquid=${_local_uri}/squid.confd-r1
-_Isquid=${_local_uri}/squid.initd-r4
-_Ctrans=${_local_uri}/transmission-daemon.confd.4
-_Itrans=${_local_uri}/transmission-daemon.initd.10
-_Cufw=${_local_uri}/ufw.confd
-_Iufw=${_local_uri}/ufw-2.initd
-_Ivsftp=${_local_uri}/vsftpd.init
-_Svsftp=${_local_uri}/vsftpd-checkconfig.sh
+_Cssh=${_gentoo_uri}/net-misc/openssh/files/sshd.confd
+_Issh=${_gentoo_uri}/net-misc/openssh/files/sshd.rc6.4
+_Ipolip=${_gentoo_uri}/net-proxy/polipo/files/polipo.initd-5
+_Ipostfix=${_gentoo_uri}/mail-mta/postfix/files/postfix.rc6.2.7
+_Ipriv=${_gentoo_uri}/net-proxy/privoxy/files/privoxy.initd-3
+_Cquota=${_gentoo_uri}/sys-fs/quota/files/quota.confd
+_Iquota1=${_gentoo_uri}/sys-fs/quota/files/quota.rc7
+_Iquota2=${_gentoo_uri}/sys-fs/quota/files/rpc.rquotad.initd
+_Crpc=${_gentoo_uri}/net-nds/rpcbind/files/rpcbind.confd
+_Irpc=${_gentoo_uri}/net-nds/rpcbind/files/rpcbind.initd
+_Crsync=${_gentoo_uri}/net-misc/rsync/files/rsyncd.conf.d
+_Irsync=${_gentoo_uri}/net-misc/rsync/files/rsyncd.init.d-r1
+_Csmb=${_gentoo_uri}/net-fs/samba/files/4.2/samba4.confd
+_Ismb=${_gentoo_uri}/net-fs/samba/files/4.2/samba4.initd-r1
+_Csquid=${_gentoo_uri}/net-proxy/squid/files/squid.confd-r1
+_Isquid=${_gentoo_uri}/net-proxy/squid/files/squid.initd-r4
+_Ctrans=${_gentoo_uri}/net-p2p/transmission/files/transmission-daemon.confd.4
+_Itrans=${_gentoo_uri}/net-p2p/transmission/files/transmission-daemon.initd.10
+_Cufw=${_gentoo_uri}/net-firewall/ufw/files/ufw.confd
+_Iufw=${_gentoo_uri}/net-firewall/ufw/files/ufw-2.initd
+_Ivsftp=${_gentoo_uri}/net-ftp/vsftpd/files/vsftpd.init
+_Svsftp=${_gentoo_uri}/net-ftp/vsftpd/files/vsftpd-checkconfig.sh
 _Iproftp=${_gentoo_uri}/net-ftp/proftpd/files/proftpd.initd
-_Cvnstat=${_local_uri}/vnstatd.confd
-_Ivnstat=${_local_uri}/vnstatd.initd-r1
-_Cxinet=${_local_uri}/xinetd.confd
-_Ixinet=${_local_uri}/xinetd.rc6
-_Cypbind=${_local_uri}/ypbind.confd-r1
-_Iypbind=${_local_uri}/ypbind.initd
-_Cypserv1=${_local_uri}/ypserv.confd
-#_Cypserv2=net-nds/ypserv/files/rpc.yppasswdd.confd
-#_Cypserv3=net-nds/ypserv/files/rpc.ypxfrd.confd
-_Iypserv1=${_local_uri}/ypserv
-#_Iypserv2=net-nds/ypserv/files/rpc.yppasswdd-r1
-#_Iypserv3=net-nds/ypserv/files/rpc.ypxfrd-2.23
-_Iautofs=${_local_uri}/autofs5.initd
-_Cvpn=${_local_uri}/openvpn-2.1.conf
-_Ivpn=${_local_uri}/openvpn-2.1.init
-_Contp=${_local_uri}/openntpd.conf.d-20080406-r6
-_Iontp=${_local_uri}/openntpd.init.d-20080406-r6
-_Ctor=${_local_uri}/tor.confd
-_Itor=${_local_uri}/tor.initd-r8
-_Cnginx=${_local_uri}/nginx.confd
-_Inginx=${_local_uri}/nginx.initd-r4
+_Cvnstat=${_gentoo_uri}/net-analyzer/vnstat/files/vnstatd.confd
+_Ivnstat=${_gentoo_uri}/net-analyzer/vnstat/files/vnstatd.initd-r1
+_Cxinet=${_gentoo_uri}/sys-apps/xinetd/files/xinetd.confd
+_Ixinet=${_gentoo_uri}/sys-apps/xinetd/files/xinetd.rc6
+_Iautofs=${_gentoo_uri}/net-fs/autofs/files/autofs5.initd
+_Cvpn=${_gentoo_uri}/net-vpn/openvpn/files/openvpn-2.1.conf
+_Ivpn=${_gentoo_uri}/net-vpn/openvpn/files/openvpn-2.1.init
+_Contp=${_gentoo_uri}/net-misc/openntpd/files/openntpd.conf.d-20080406-r6
+_Iontp=${_gentoo_uri}/net-misc/openntpd/files/openntpd.init.d-20080406-r6
+_Ctor=${_gentoo_uri}/net-vpn/tor/files/tor.confd
+_Itor=${_gentoo_uri}/net-vpn/tor/files/tor.initd-r8
+_Cnginx=${_gentoo_uri}/www-servers/nginx/files/nginx.confd
+_Inginx=${_gentoo_uri}/www-servers/nginx/files/nginx.initd-r4
+_Cdnsmasq=${_gentoo_uri}/net-dns/dnsmasq/files/dnsmasq.confd-r1
+_Idnsmasq=${_gentoo_uri}/net-dns/dnsmasq/files/dnsmasq-init-r3
+_Csyncthing=${_gentoo_uri}/net-p2p/syncthing/files/syncthing.confd
+_Isyncthing=${_gentoo_uri}/net-p2p/syncthing/files/syncthing.initd
 
 # install
 install -Dm755 "${_Iautofs}" "${DESTDIR}/etc/init.d/autofs"
@@ -107,6 +102,7 @@ install -Dm755 "${_Iip}" "${DESTDIR}/etc/init.d/ip6tables"
 #install -Dm755 "${_gentoo_uri}/${_Ikrb3}" "${DESTDIR}/etc/init.d/krb5kpropd"
 #install -Dm644 "${_gentoo_uri}/${_Clight}" "${DESTDIR}/etc/conf.d/lighttpd"
 #install -Dm755 "${_gentoo_uri}/${_Ilight}" "${DESTDIR}/etc/init.d/lighttpd"
+install -Dm644 "${_Crpc}" "${DESTDIR}/etc/conf.d/rpcbind"
 install -Dm755 "${_Irpc}" "${DESTDIR}/etc/init.d/rpcbind"
 install -Dm644 "${_Cnfs}" "${DESTDIR}/etc/conf.d/nfs"
 install -Dm755 "${_Infs}" "${DESTDIR}/etc/init.d/nfs"
@@ -149,26 +145,17 @@ install -Dm644 "${_Cvnstat}" "${DESTDIR}/etc/conf.d/vnstatd"
 install -Dm755 "${_Ivnstat}" "${DESTDIR}/etc/init.d/vnstatd"
 install -Dm644 "${_Cxinet}" "${DESTDIR}/etc/conf.d/xinetd"
 install -Dm755 "${_Ixinet}" "${DESTDIR}/etc/init.d/xinetd"
-install -Dm644 "${_Cypbind}" "${DESTDIR}/etc/conf.d/ypbind"
-install -Dm755 "${_Iypbind}" "${DESTDIR}/etc/init.d/ypbind"
-install -Dm644 "${_Iypserv1}" "${DESTDIR}/etc/conf.d/ypserv"
-install -Dm755 "${_Cypserv1}" "${DESTDIR}/etc/init.d/ypserv"
-#install -Dm644 "${_gentoo_uri}/${_Cypserv2}" "${DESTDIR}/etc/conf.d/rpc.yppasswdd"
-#install -Dm755 "${_gentoo_uri}/${_Iypserv2}" "${DESTDIR}/etc/init.d/rpc.yppasswdd"
-#install -Dm644 "${_gentoo_uri}/${_Cypserv3}" "${DESTDIR}/etc/conf.d/rpc.ypxfrd"
-#install -Dm755 "${_gentoo_uri}/${_Iypserv3}" "${DESTDIR}/etc/init.d/rpc.ypxfrd"
 install -Dm644 "${_Ctor}" "${DESTDIR}/etc/conf.d/tor"
 install -Dm755 "${_Itor}" "${DESTDIR}/etc/init.d/tor"
 install -Dm644 "${_Cnginx}" "${DESTDIR}/etc/conf.d/nginx"
 install -Dm755 "${_Inginx}" "${DESTDIR}/etc/init.d/nginx"
+install -Dm644 "${_Cdnsmasq}" "${DESTDIR}/etc/conf.d/dnsmasq"
+install -Dm755 "${_Idnsmasq}" "${DESTDIR}/etc/init.d/dnsmasq"
+install -Dm644 "${_Csyncthing}" "${DESTDIR}/etc/conf.d/syncthing"
+install -Dm755 "${_Isyncthing}" "${DESTDIR}/etc/init.d/syncthing"
 install -Dm644 "misc/gentoo-apache-${_apver}/init/apache2.confd" "${DESTDIR}/etc/conf.d/httpd"
 install -Dm755 "misc/gentoo-apache-${_apver}/init/apache2.initd" "${DESTDIR}/etc/init.d/httpd"
 install -Dm755 "misc/init.d/wicd.initd" "${DESTDIR}/etc/init.d/wicd"
-install -Dm644 "misc/conf.d/syncthing.confd" "${DESTDIR}/etc/conf.d/syncthing"
-install -Dm755 "misc/init.d/syncthing.initd" "${DESTDIR}/etc/init.d/syncthing"
-install -Dm644 "misc/conf.d/dnsmasq.confd" "${DESTDIR}/etc/conf.d/dnsmasq"
-install -Dm755 "misc/init.d/dnsmasq.init" "${DESTDIR}/etc/init.d/dnsmasq"
-install -Dm644 "misc/conf.d/rpcbind.confd" "${DESTDIR}/etc/conf.d/rpcbind"
 
 # comments
 #

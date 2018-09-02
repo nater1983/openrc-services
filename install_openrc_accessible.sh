@@ -2,13 +2,12 @@
 # install_openrc_accessible.sh
 
 DESTDIR=$1
-DOWNLOAD_DIR=packages-openrc-master
 
-_local_uri="${DOWNLOAD_DIR}/openrc-accessible"
+_gentoo_uri="gentoo"
 
 # files
-_Cespk=${_local_uri}/espeakup.confd
-_Iespk=${_local_uri}/espeakup.rc
+_Cespk=${_gentoo_uri}/app-accessibility/espeakup/files/espeakup.confd
+_Iespk=${_gentoo_uri}/app-accessibility/espeakup/files/espeakup.rc
 
 # install
 install -Dm644 "${_Cespk}" "${DESTDIR}/etc/conf.d/espeakup"
