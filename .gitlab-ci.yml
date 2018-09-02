@@ -1,10 +1,10 @@
-build:
-  stage: build
-  before_script:
-    - rm -r gentoo
-  script:
-    - bash download-via-git.sh
-    - bash download_misc.sh
+#build:
+#  stage: build
+#  before_script:
+#    - rm -r gentoo
+#  script:
+#    - bash download-via-git.sh
+#    - bash download_misc.sh
 
 test:
   stage: test
