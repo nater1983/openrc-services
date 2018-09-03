@@ -18,20 +18,16 @@ source_initd=("https://github.com/dywisor/tlp-portage/raw/maint/app-laptop/tlp/f
 source_confd=()
 
 # Download to misc folder
-mkdir -p misc
 cd misc
 for src in "${source_archive[@]}"; do
 	wget -c "$src"
-	tar xf "$(basename $src)"
 done
 
-mkdir -p init.d
 cd init.d
 for src in "${source_initd[@]}"; do
 	wget -c "$src"
 done
 
-mkdir -p conf.d
 cd ../conf.d
 for src in "${source_confd[@]}"; do
 	wget -c "$src"
