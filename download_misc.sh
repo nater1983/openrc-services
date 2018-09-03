@@ -25,11 +25,13 @@ for src in "${source_archive[@]}"; do
 	tar xf "$(basename $src)"
 done
 
+mkdir -p init.d
 cd init.d
 for src in "${source_initd[@]}"; do
 	wget -c "$src"
 done
 
+mkdir -p conf.d
 cd ../conf.d
 for src in "${source_confd[@]}"; do
 	wget -c "$src"
