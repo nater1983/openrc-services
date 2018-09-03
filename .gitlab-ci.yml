@@ -1,4 +1,4 @@
-image: ubuntu
+image: tennox/alpine-rsync-ssh-git
 
 build:
   stage: build
