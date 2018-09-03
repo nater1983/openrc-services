@@ -22,7 +22,7 @@ mkdir -p misc
 cd misc
 for src in "${source_archive[@]}"; do
 	wget -c "$src"
-	tar xf "$src"
+	tar xf "$(basename $src)"
 done
 
 cd init.d

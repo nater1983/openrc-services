@@ -1,7 +1,13 @@
 image: ianayoung/rsync
 
-build:
+test:
   stage: build
+  script:
+    - mkdir test
+    - bash install.sh test
+
+build:
+  stage: test
   before_script:
     - rm -r gentoo
     - bash download.sh
@@ -21,9 +27,3 @@ build:
 #  script:
 #    - mkdir test
 #    - bash install.sh test
-
-test:
-  stage: build
-  script:
-    - mkdir test
-    - bash install.sh test
