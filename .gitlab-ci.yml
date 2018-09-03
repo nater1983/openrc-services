@@ -23,7 +23,7 @@ build:
 #    - bash install.sh test
 
 test:
-  stage: test
+  stage: build
   script:
     - mkdir test
     - bash install.sh test
