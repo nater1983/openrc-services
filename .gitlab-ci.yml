@@ -1,4 +1,4 @@
-image: ianayoung/rsync
+image: ubuntu/trusty
 
 build:
   stage: build
