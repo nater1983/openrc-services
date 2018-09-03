@@ -5,20 +5,22 @@ build:
   before_script:
     - rm -r gentoo
     - bash download.sh
+    - rm -r misc
     - bash download_misc.sh
   script:
     - mkdir test
     - bash install.sh test
 
-build-via-git:
-  stage: build
-  before_script:
-    - rm -r gentoo
-    - bash download-via-git.sh
-    - bash download_misc.sh
-  script:
-    - mkdir test
-    - bash install.sh test
+#build-via-git:
+#  stage: build
+#  before_script:
+#    - rm -r gentoo
+#    - bash download-via-git.sh
+#    - rm -r misc
+#    - bash download_misc.sh
+#  script:
+#    - mkdir test
+#    - bash install.sh test
 
 test:
   stage: test
