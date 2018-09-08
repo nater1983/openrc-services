@@ -25,9 +25,9 @@ for src in "${source_archive[@]}"; do
 done
 
 cd init.d
-#for src in "${source_initd[@]}"; do
-#	wget -c "$src"
-#done
+for src in "${source_initd[@]}"; do
+	wget -c "$src"
+done
 
 cd ../conf.d
 for src in "${source_confd[@]}"; do
@@ -41,8 +41,9 @@ for src in "${source_archive[@]}"; do
 done
 cd ..
 
-[ -e "misc/$_apache" ] && rm -r "misc/$_apache"
-[ -e "misc/$_udev" ] && rm -r "misc/$_udev"
+# move downloaded files to common place
+[ -d "misc/${_apache}-${_apver}" ] && rm -r "misc/${_apache}"
+[ -d "misc/${_udev}-${_uver}" ] && rm -r "misc/${_udev}"
 
 mv "misc/${_apache}-${_apver}" "misc/${_apache}"
 mv "misc/${_udev}-${_uver}" "misc/${_udev}"
