@@ -24,10 +24,10 @@ for src in "${source_archive[@]}"; do
 	wget -c "$src"
 done
 
-cd init.d
-for src in "${source_initd[@]}"; do
-	wget -c "$src"
-done
+#cd init.d
+#for src in "${source_initd[@]}"; do
+#	wget -c "$src"
+#done
 
 cd ../conf.d
 for src in "${source_confd[@]}"; do
