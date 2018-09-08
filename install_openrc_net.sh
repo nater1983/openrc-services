@@ -4,7 +4,6 @@
 DESTDIR=$1
 
 _gentoo_uri="gentoo"
-_apver=2.4.18-r1
 
 # files
 _Cbind=${_gentoo_uri}/net-dns/bind/files/named.confd-r7
@@ -153,8 +152,8 @@ install -Dm644 "${_Cdnsmasq}" "${DESTDIR}/etc/conf.d/dnsmasq"
 install -Dm755 "${_Idnsmasq}" "${DESTDIR}/etc/init.d/dnsmasq"
 install -Dm644 "${_Csyncthing}" "${DESTDIR}/etc/conf.d/syncthing"
 install -Dm755 "${_Isyncthing}" "${DESTDIR}/etc/init.d/syncthing"
-install -Dm644 "misc/gentoo-apache-${_apver}/init/apache2.confd" "${DESTDIR}/etc/conf.d/httpd"
-install -Dm755 "misc/gentoo-apache-${_apver}/init/apache2.initd" "${DESTDIR}/etc/init.d/httpd"
+install -Dm644 "misc/gentoo-apache/init/apache2.confd" "${DESTDIR}/etc/conf.d/httpd"
+install -Dm755 "misc/gentoo-apache/init/apache2.initd" "${DESTDIR}/etc/init.d/httpd"
 install -Dm755 "misc/init.d/wicd.initd" "${DESTDIR}/etc/init.d/wicd"
 
 # comments

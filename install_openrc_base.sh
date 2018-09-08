@@ -5,7 +5,6 @@ DESTDIR=$1
 
 _gentoo_uri="gentoo"
 _udev="udev-init-scripts"
-_uver=30
 
 # files
 _Icron=${_gentoo_uri}/sys-process/cronie/files/cronie-1.3-initd

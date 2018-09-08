@@ -4,16 +4,16 @@
 
 depend()
 {
-need udev
-after udev-trigger
-provide dev-settle
+	need udev
+	after udev-trigger
+	provide dev-settle
 	keyword -lxc -systemd-nspawn -vserver
 }
 
 start()
 {
 	ebegin "Waiting for uevents to be processed"
-	udevadm settle --timeout=${udev_settle_timeout:-60}
+	udevadm settle \
+		${udev_settle_timeout:+--timeout=}$udev_settle_timeout
 	eend $?
-	return 0
 }

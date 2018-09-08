@@ -48,9 +48,9 @@ start_post()
 			start-stop-daemon --stop --pidfile "${udevmonitor_pid}" \
 				--exec /bin/udevadm
 		fi
-		fi
-		display_hotplugged_services
-		return 0
+	fi
+	display_hotplugged_services
+	return 0
 }
 
 # This is here because some software expects /dev/root to exist.
@@ -84,13 +84,13 @@ start()
 		einfo "Setting /dev permissions and symbolic links"
 		udevadm trigger --attr-match=dev --action=add
 		udevadm trigger --subsystem-match=net --action=add
+		rc=$?
 		ewarn "Skipping udev coldplug sequence"
-		return 0
+		return $rc
 	fi
 
 	ebegin "Populating /dev with existing devices through uevents"
 	udevadm trigger --type=subsystems --action=add
 	udevadm trigger --type=devices --action=add
 	eend $?
-	return 0
 }
