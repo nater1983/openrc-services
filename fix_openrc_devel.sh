@@ -12,7 +12,7 @@ _p4='s|STOP_TIMEOUT=120|STOP_TIMEOUT=60|'
 sed -e "${_p1}" -i "${DESTDIR}/etc/init.d/mysqld"
 sed -e "${_p2}" -e "${_p3}" -e "${_p4}" -i "${DESTDIR}/etc/conf.d/mysqld"
 # remove extra check
-sed "/\! -d \"\${datadir}\"\/mysql/,+12d" -i "${DESTDIR}/etc/init.d/mysqld"
+sed "/\! -d \"\${datadir}\"\/mysql/,+11d" -i "${DESTDIR}/etc/init.d/mysqld"
 
 # postgresql
 if [ "$(uname -m)" = x86_64 ]; then
