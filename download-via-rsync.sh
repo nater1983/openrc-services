@@ -31,8 +31,8 @@ elif [ "$1" = -p ]; then
 	package="$3"
 	# Checkout the source
 	folder_to_sync="$cat/$package/files"
-	mkdir -p "test123/$REMOTE_REPO/$folder_to_sync"
-	rsync -av "$REMOTE_REPO_URL/$folder_to_sync/*" "test123/$REMOTE_REPO/$folder_to_sync/"
+	mkdir -p "$REMOTE_REPO/$folder_to_sync"
+	rsync -av "$REMOTE_REPO_URL/$folder_to_sync/*" "$REMOTE_REPO/$folder_to_sync/"
 	# Exit with status
 	exit $?
 fi
