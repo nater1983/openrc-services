@@ -24,7 +24,7 @@ for src in "${source_archive[@]}"; do
 	wget -c "$src"
 done
 
-#cd init.d
+cd init.d
 #for src in "${source_initd[@]}"; do
 #	wget -c "$src"
 #done
