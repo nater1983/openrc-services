@@ -19,6 +19,10 @@ _p9='s|start-stop-daemon --start|start-stop-daemon --start --pidfile ${PIDFILE}|
 sed -e "${_p1}" -e "${_p2}" -e "${_p4}" -e "${_p5}" -e "${_p6}" -e "${_p8}" -e "${_p9}" -i "${DESTDIR}/etc/init.d/httpd"
 sed -e "${_p2}" -e "${_p4}" -e "${_p5}" -e "${_p7}" -i "${DESTDIR}/etc/conf.d/httpd"
 
+# dnsmasq
+_p1='/DNSMASQ_OPTS/s/^/#/'
+sed -e "${_p1}" -i "${DESTDIR}/etc/conf.d/dnsmasq"
+
 # named
 _p1='s|/etc/bind/named.conf|/etc/named.conf|g'
 sed -e "${_p1}" -i "${DESTDIR}/etc/init.d/named"

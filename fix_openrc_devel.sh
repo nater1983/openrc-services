@@ -29,6 +29,15 @@ _p4='s|/var/lib/postgresql|/var/lib/pgsql|g'
 sed -e "${_p1}" -e "${_p2}" -e "${_p3}" -i "${DESTDIR}/etc/init.d/postgresql"
 sed -e "${_p2}" -e "${_p3}" -e "${_p4}" -i "${DESTDIR}/etc/conf.d/postgresql"
 
+# redis
+_p1='s|/usr/sbin/redis-server|/usr/bin/redis-server|'
+_p2='/rc_need/s/^/#/'
+_p3='s/REDIS_USER="redis"/REDIS_USER="root"/'
+_p4='s/REDIS_GROUP="redis"/REDIS_GROUP="root"/'
+_p5='s|/etc/redis.conf|/etc/redis/redis.conf|'
+sed -e "${_p1}" -i "${DESTDIR}/etc/init.d/redis"
+sed -e "${_p2}" -e "${_p3}" -e "${_p4}" -e "${_p5}" -i "${DESTDIR}/etc/conf.d/redis"
+
 # subversion
 _p2='s|-apache|-http|g'
 sed -e "${_p2}" -i "${DESTDIR}/etc/init.d/svn"

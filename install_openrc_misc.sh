@@ -67,8 +67,6 @@ _Ivirtlock=${_gentoo_uri}/app-emulation/libvirt/files/virtlockd.init-r1
 _Ivirtlog=${_gentoo_uri}/app-emulation/libvirt/files/virtlogd.init-r1
 _CPulseAudio=${_gentoo_uri}/media-sound/pulseaudio/files/pulseaudio.conf.d
 _IPulseAudio=${_gentoo_uri}/media-sound/pulseaudio/files/pulseaudio.init.d-5
-_Cinflux=${_gentoo_uri}/dev-db/influxdb/files/influxdb.confd
-_Iinflux=${_gentoo_uri}/dev-db/influxdb/files/influxdb.rc
 
 # install
 install -Dm755 "${_Iacron}" "${DESTDIR}/etc/init.d/anacron"
@@ -132,7 +130,5 @@ install -Dm755 "${_Ivirtlock}" "${DESTDIR}/etc/init.d/virtlockd"
 install -Dm755 "${_Ivirtlog}" "${DESTDIR}/etc/init.d/virtlogd"
 install -Dm644 "${_CPulseAudio}" "${DESTDIR}/etc/conf.d/pulseaudio"
 install -Dm755 "${_IPulseAudio}" "${DESTDIR}/etc/init.d/pulseaudio"
-install -Dm644 "${_Cinflux}" "${DESTDIR}/etc/conf.d/influxdb"
-install -Dm755 "${_Iinflux}" "${DESTDIR}/etc/init.d/influxdb"
 install -Dm755 "misc/init.d/zfs.initd" "${DESTDIR}/etc/init.d/zfs"
 install -Dm755 "misc/init.d/netdata-openrc.initd" "${DESTDIR}/etc/init.d/netdata"

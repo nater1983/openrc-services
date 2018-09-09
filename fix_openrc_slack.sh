@@ -8,10 +8,6 @@ DESTDIR=$1
 _p1='/ebegin "Starting \${SVCNAME}"/a \\t# adapted from \/etc\/rc.d\/rc.crond \n\tmkdir -p /run/cron'
 sed -e "${_p1}" -i "${DESTDIR}/etc/init.d/dcron"
 
-# ulogd
-_p1='s| --uid ulogd||g'
-sed -e "${_p1}" -i "${DESTDIR}/etc/init.d/ulogd"
-
 # php-fpm
 _p1='s|lib/${PHPSLOT}/bin|sbin|g'
 _p2='s|/etc/php/fpm-${PHPSLOT}|/etc|'
@@ -21,5 +17,6 @@ _p5='s|^.*${PHPSLOT}.*||'
 _p6='s|apache2|httpd|'
 sed -e "${_p1}" -e "${_p2}" -e "${_p3}" -e "${_p4}" -e "${_p5}" -e "${_p6}" -i "${DESTDIR}/etc/init.d/php-fpm"
 
-# redis
-sed 's|/usr/sbin/redis-server|/usr/bin/redis-server|' -i "${DESTDIR}/etc/init.d/redis"
+# ulogd
+_p1='s| --uid ulogd||g'
+sed -e "${_p1}" -i "${DESTDIR}/etc/init.d/ulogd"

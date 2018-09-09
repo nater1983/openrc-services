@@ -19,6 +19,10 @@ _IDistcc=${_gentoo_uri}/sys-devel/distcc/files/3.2/init
 _CJenk=${_gentoo_uri}/dev-util/jenkins-bin/files/jenkins-bin.confd
 _IJenk=${_gentoo_uri}/dev-util/jenkins-bin/files/jenkins-bin.init2
 _LJenk=${_gentoo_uri}/dev-util/jenkins-bin/files/jenkins-bin-r1.logrotate
+_Cinflux=${_gentoo_uri}/dev-db/influxdb/files/influxdb.confd
+_Iinflux=${_gentoo_uri}/dev-db/influxdb/files/influxdb.rc
+_CRedS="${_gentoo_uri}/dev-db/redis/files/redis.confd-r1"
+_IRedS="${_gentoo_uri}/dev-db/redis/files/redis.initd-5"
 
 # install
 install -Dm644 "${_Cgit}" "${DESTDIR}/etc/conf.d/git-daemon"
@@ -34,4 +38,7 @@ install -Dm755 "${_IDistcc}" "${DESTDIR}/etc/init.d/distccd"
 install -Dm644 "${_CJenk}" "${DESTDIR}/etc/conf.d/jenkins"
 install -Dm755 "${_IJenk}" "${DESTDIR}/etc/init.d/jenkins"
 install -Dm644 "${_LJenk}" "${DESTDIR}/etc/logrotate.d/jenkins"
-install -Dm755 "misc/init.d/php-fpm-r4.init" "${DESTDIR}/etc/init.d/php-fpm"
+install -Dm644 "${_Cinflux}" "${DESTDIR}/etc/conf.d/influxdb"
+install -Dm755 "${_Iinflux}" "${DESTDIR}/etc/init.d/influxdb"
+install -Dm644 "${_CRedS}" "${DESTDIR}/etc/conf.d/redis"
+install -Dm755 "${_IRedS}" "${DESTDIR}/etc/init.d/redis"
