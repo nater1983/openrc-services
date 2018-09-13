@@ -3,6 +3,10 @@
 
 DESTDIR=$1
 
+# influxdb
+_p1='s|influxd.conf|influxdb.conf|g'
+sed -e "${_p1}" -i "${DESTDIR}/etc/init.d/influxdb"
+
 # mysql
 #_p1='s|--exec "${basedir}"/sbin/mysqld|--exec "${basedir}"/bin/mysqld_safe|g'
 _p1='s|/sbin/mysqld|/libexec/mysqld|g'
