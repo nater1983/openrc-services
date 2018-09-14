@@ -3,6 +3,9 @@
 
 DESTDIR=$1
 
+# https://stackoverflow.com/a/29394504/4005566
+function ver { printf "%03d%03d%03d%03d" $(echo "$1" | tr '.' ' '); }
+
 # dbus
 _p1='s|dbus.pid|dbus/dbus.pid|g'
 sed -e "${_p1}" -i "${DESTDIR}/etc/init.d/dbus"
@@ -10,7 +13,7 @@ sed -e "${_p1}" -i "${DESTDIR}/etc/init.d/dbus"
 # dhcpcd
 # get dhcpcd version
 dhcpcd_ver=$(ls /var/log/packages/ | grep dhcpcd | cut -f 2 -d "-")
-if [ "$dhcpcd_ver" \< "6.10" ]; then
+if [ $(ver "$dhcpcd_ver") -lt $(ver "6.10") ]; then
   # fix for slackware 14.2
   _p1='s|dhcpcd.pid|dhcpcd/dhcpcd.pid|g'
   sed -e "${_p1}" -i "${DESTDIR}/etc/init.d/dhcpcd"
