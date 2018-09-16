@@ -24,6 +24,10 @@ sed -e "${_p1}" -e "${_p2}" -i "${DESTDIR}/etc/init.d/cupsd"
 _p1='s|/usr/libexec|/usr/sbin|g'
 sed -e "${_p1}" -i "${DESTDIR}/etc/init.d/fcron"
 
+# haveged
+_p1='s|/usr/sbin|/sbin|g'
+sed -e "${_p1}" -i "${DESTDIR}/etc/init.d/haveged"
+
 # ntpd
 _p1='s| -u ntp:ntp||'
 sed -e "${_p1}" -i "${DESTDIR}/etc/conf.d/ntpd"
