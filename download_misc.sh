@@ -11,12 +11,19 @@ _apache=gentoo-apache
 _apver=2.4.34
 _aprel=20180716
 
-source_archive=("${_src_uri}/${_udev}-${_uver}.tar.gz"
-	"${_dev_uri}/gentoo-apache-${_apver}-${_aprel}.tar.bz2")
+source_archive=(
+	"${_src_uri}/${_udev}-${_uver}.tar.gz"
+	"${_dev_uri}/gentoo-apache-${_apver}-${_aprel}.tar.bz2"
+)
 
-source_initd=("https://github.com/dywisor/tlp-portage/raw/maint/app-laptop/tlp/files/tlp-init.openrc-r2")
+source_initd=(
+	"https://github.com/dywisor/tlp-portage/raw/maint/app-laptop/tlp/files/tlp-init.openrc-r2",
+	"https://github.com/moby/moby/raw/master/contrib/init/openrc/docker.initd"
+)
 
-source_confd=()
+source_confd=(
+	"https://github.com/moby/moby/raw/master/contrib/init/openrc/docker.confd"
+)
 
 # Download to misc folder
 cd misc
