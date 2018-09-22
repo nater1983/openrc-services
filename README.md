@@ -1,4 +1,4 @@
-A set of OpenRC services, with scripts to download and install.
+A set of OpenRC services, fetched from upstream and modifed as needed.
 
 Currently these can be used on Slackware Linux.
 
