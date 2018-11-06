@@ -2,14 +2,15 @@
 # fix_path.sh: fixes path in runscript and location of /var/run
 
 DESTDIR=$1
+SYSCONFDIR=${SYSCONFDIR:-/etc}
 
 _shebang='s|#!/sbin/runscript|#!/sbin/openrc-run|'
 _runpath='s|/var/run|/run|g'
 
-for file in ${DESTDIR}/etc/init.d/*; do
+for file in ${DESTDIR}/${SYSCONFDIR}/init.d/*; do
   sed -e "${_shebang}" -e "${_runpath}" -i "$file"
 done
 
-for file in ${DESTDIR}/etc/conf.d/*; do
+for file in ${DESTDIR}/${SYSCONFDIR}/conf.d/*; do
   sed -e "${_runpath}" -i "$file"
 done

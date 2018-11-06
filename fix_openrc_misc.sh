@@ -2,10 +2,11 @@
 # fix_openrc_misc.sh
 
 DESTDIR=$1
+SYSCONFDIR=${SYSCONFDIR:-etc}
 
 # bitlbee
 _p1='s|need logger net|need net\n	use logger|'
-sed -e "${_p1}" -i "${DESTDIR}/etc/init.d/bitlbee"
+sed -e "${_p1}" -i "${DESTDIR}/${SYSCONFDIR}/init.d/bitlbee"
 
 # boinc
 if [ "$(uname -m)" = x86_64 ]; then
@@ -13,37 +14,37 @@ if [ "$(uname -m)" = x86_64 ]; then
 else
   _p1='s|@libdir@|lib|g'
 fi
-sed -e "${_p1}" -i "${DESTDIR}/etc/init.d/boinc"
+sed -e "${_p1}" -i "${DESTDIR}/${SYSCONFDIR}/init.d/boinc"
 
 # cups
 _p1='s|lp:lpadmin|daemon:sys|'
 _p2='s|@neededservices@|need dbus|'
-sed -e "${_p1}" -e "${_p2}" -i "${DESTDIR}/etc/init.d/cupsd"
+sed -e "${_p1}" -e "${_p2}" -i "${DESTDIR}/${SYSCONFDIR}/init.d/cupsd"
 
 # fcron
 _p1='s|/usr/libexec|/usr/sbin|g'
-sed -e "${_p1}" -i "${DESTDIR}/etc/init.d/fcron"
+sed -e "${_p1}" -i "${DESTDIR}/${SYSCONFDIR}/init.d/fcron"
 
 # haveged
 _p1='s|/usr/sbin|/sbin|g'
-sed -e "${_p1}" -i "${DESTDIR}/etc/init.d/haveged"
+sed -e "${_p1}" -i "${DESTDIR}/${SYSCONFDIR}/init.d/haveged"
 
 # ntpd
 _p1='s| -u ntp:ntp||'
-sed -e "${_p1}" -i "${DESTDIR}/etc/conf.d/ntpd"
+sed -e "${_p1}" -i "${DESTDIR}/${SYSCONFDIR}/conf.d/ntpd"
 
 # vboxservice
 _p1='s|vboxguest-service|VBoxService|'
-sed -e "${_p1}" -i "${DESTDIR}/etc/init.d/vboxservice"
+sed -e "${_p1}" -i "${DESTDIR}/${SYSCONFDIR}/init.d/vboxservice"
 
 # libvirt
 _p1='s|USE_FLAG_FIREWALLD||'
 _p2='s|USE_FLAG_AVAHI||'
 _p3='s|USE_FLAG_ISCSI||'
 _p4='s|USE_FLAG_RBD||'
-sed -e "${_p1}" -e "${_p2}" -e "${_p3}" -e "${_p4}" -i "${DESTDIR}/etc/init.d/libvirtd"
+sed -e "${_p1}" -e "${_p2}" -e "${_p3}" -e "${_p4}" -i "${DESTDIR}/${SYSCONFDIR}/init.d/libvirtd"
 
-cat << "EOF" >> "${DESTDIR}/etc/init.d/libvirtd"
+cat << "EOF" >> "${DESTDIR}/${SYSCONFDIR}/init.d/libvirtd"
 
 # adapted from SBo's rc.libvirt
 # https://slackbuilds.org/repository/14.2/libraries/libvirt/
@@ -92,9 +93,9 @@ EOF
 
 # saned
 _p1='s|saned/saned.pid|saned.pid|g'
-sed -e "${_p1}" -i "${DESTDIR}/etc/init.d/saned"
+sed -e "${_p1}" -i "${DESTDIR}/${SYSCONFDIR}/init.d/saned"
 
 # zfs
 _p1='s|/usr/bin/zfs|/sbin/zfs|'
 _p2='s|/usr/bin/zpool|/sbin/zpool|'
-sed -e "${_p1}" -e "${_p2}" -i "${DESTDIR}/etc/init.d/zfs"
+sed -e "${_p1}" -e "${_p2}" -i "${DESTDIR}/${SYSCONFDIR}/init.d/zfs"

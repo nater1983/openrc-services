@@ -2,14 +2,15 @@
 # fix_openrc_desktop.sh
 
 DESTDIR=$1
+SYSCONFDIR=${SYSCONFDIR:-etc}
 
 # bluetooth
 _p1='s|libexec/bluetooth|sbin|g'
-sed -e "${_p1}" -i "${DESTDIR}/etc/init.d/bluetooth"
+sed -e "${_p1}" -i "${DESTDIR}/${SYSCONFDIR}/init.d/bluetooth"
 
 # xdm
 _p1='s|/etc/profile.env|/etc/profile|g'
-sed -e "${_p1}" -i "${DESTDIR}/etc/init.d/xdm"
+sed -e "${_p1}" -i "${DESTDIR}/${SYSCONFDIR}/init.d/xdm"
 
 # wpa_supplicant
 if [ -f /etc/os-release ]; then

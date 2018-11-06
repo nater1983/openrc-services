@@ -2,17 +2,19 @@
 # to migrate existing services from Slackware's default init scripts in
 # /etc/rc.d to OpenRC services
 
+SYSCONFDIR=${SYSCONFDIR:-/etc}
+
 enable_service=()
 running_service=()
 
 # Display exising enabled services
 echo "Currently executable:"
-for file in /etc/rc.d/*; do
+for file in ${SYSCONFDIR}/rc.d/*; do
 	if [ -x "${file}" ]; then
 		echo "${file}"
 		# Check corresponding init.d service
 		service_name=$(basename "${file}" | sed 's/rc.//')
-		if [ -f "/etc/init.d/${service_name}" ]; then
+		if [ -f "${SYSCONFDIR}/init.d/${service_name}" ]; then
 			if ! service "${service_name}" status > /dev/null; then
 				enable_service+=(${service_name})
 			else

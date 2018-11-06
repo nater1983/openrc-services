@@ -4,6 +4,7 @@
 set -e  # exit on error
 
 DESTDIR=$1
+SYSCONFDIR=${SYSCONFDIR:-etc}
 
 echo "Installing OpenRC services..."
 

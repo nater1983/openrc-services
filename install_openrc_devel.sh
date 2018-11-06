@@ -2,6 +2,7 @@
 # install_openrc_devel.sh
 
 DESTDIR=$1
+SYSCONFDIR=${SYSCONFDIR:-etc}
 
 _gentoo_uri="gentoo"
 
@@ -25,20 +26,20 @@ _CRedS="${_gentoo_uri}/dev-db/redis/files/redis.confd-r1"
 _IRedS="${_gentoo_uri}/dev-db/redis/files/redis.initd-5"
 
 # install
-install -Dm644 "${_Cgit}" "${DESTDIR}/etc/conf.d/git-daemon"
-install -Dm755 "${_Igit}" "${DESTDIR}/etc/init.d/git-daemon"
-install -Dm644 "${_Cmy}" "${DESTDIR}/etc/conf.d/mysqld"
-install -Dm755 "${_Imy}" "${DESTDIR}/etc/init.d/mysqld"
-install -Dm644 "${_CPgsql}" "${DESTDIR}/etc/conf.d/postgresql"
-install -Dm755 "${_IPgsql}" "${DESTDIR}/etc/init.d/postgresql"
-install -Dm644 "${_Csvn}" "${DESTDIR}/etc/conf.d/svn"
-install -Dm755 "${_Isvn}" "${DESTDIR}/etc/init.d/svn"
-install -Dm644 "${_CDistcc}" "${DESTDIR}/etc/conf.d/distccd"
-install -Dm755 "${_IDistcc}" "${DESTDIR}/etc/init.d/distccd"
-install -Dm644 "${_CJenk}" "${DESTDIR}/etc/conf.d/jenkins"
-install -Dm755 "${_IJenk}" "${DESTDIR}/etc/init.d/jenkins"
+install -Dm644 "${_Cgit}" "${DESTDIR}/${SYSCONFDIR}/conf.d/git-daemon"
+install -Dm755 "${_Igit}" "${DESTDIR}/${SYSCONFDIR}/init.d/git-daemon"
+install -Dm644 "${_Cmy}" "${DESTDIR}/${SYSCONFDIR}/conf.d/mysqld"
+install -Dm755 "${_Imy}" "${DESTDIR}/${SYSCONFDIR}/init.d/mysqld"
+install -Dm644 "${_CPgsql}" "${DESTDIR}/${SYSCONFDIR}/conf.d/postgresql"
+install -Dm755 "${_IPgsql}" "${DESTDIR}/${SYSCONFDIR}/init.d/postgresql"
+install -Dm644 "${_Csvn}" "${DESTDIR}/${SYSCONFDIR}/conf.d/svn"
+install -Dm755 "${_Isvn}" "${DESTDIR}/${SYSCONFDIR}/init.d/svn"
+install -Dm644 "${_CDistcc}" "${DESTDIR}/${SYSCONFDIR}/conf.d/distccd"
+install -Dm755 "${_IDistcc}" "${DESTDIR}/${SYSCONFDIR}/init.d/distccd"
+install -Dm644 "${_CJenk}" "${DESTDIR}/${SYSCONFDIR}/conf.d/jenkins"
+install -Dm755 "${_IJenk}" "${DESTDIR}/${SYSCONFDIR}/init.d/jenkins"
 install -Dm644 "${_LJenk}" "${DESTDIR}/etc/logrotate.d/jenkins"
-install -Dm644 "${_Cinflux}" "${DESTDIR}/etc/conf.d/influxdb"
-install -Dm755 "${_Iinflux}" "${DESTDIR}/etc/init.d/influxdb"
-install -Dm644 "${_CRedS}" "${DESTDIR}/etc/conf.d/redis"
-install -Dm755 "${_IRedS}" "${DESTDIR}/etc/init.d/redis"
+install -Dm644 "${_Cinflux}" "${DESTDIR}/${SYSCONFDIR}/conf.d/influxdb"
+install -Dm755 "${_Iinflux}" "${DESTDIR}/${SYSCONFDIR}/init.d/influxdb"
+install -Dm644 "${_CRedS}" "${DESTDIR}/${SYSCONFDIR}/conf.d/redis"
+install -Dm755 "${_IRedS}" "${DESTDIR}/${SYSCONFDIR}/init.d/redis"

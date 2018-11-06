@@ -2,6 +2,7 @@
 # install_openrc_video.sh
 
 DESTDIR=$1
+SYSCONFDIR=${SYSCONFDIR:-etc}
 
 _gentoo_uri="gentoo"
 
@@ -22,12 +23,12 @@ _Ivgl=${_gentoo_uri}/x11-misc/virtualgl/files/vgl.initd-r3
 _Svgl=${_gentoo_uri}/x11-misc/virtualgl/files/vgl-helper.sh
 
 # install
-install -Dm755 "${_Inv}" "${DESTDIR}"/etc/init.d/nvidia-smi
-install -Dm644 "${_Cnvp}" "${DESTDIR}"/etc/conf.d/nvidia-persistenced
-install -Dm755 "${_Invp}" "${DESTDIR}"/etc/init.d/nvidia-persistenced
-install -Dm644 "${_Cvgl}" "${DESTDIR}"/etc/conf.d/vgl
-install -Dm755 "${_Ivgl}" "${DESTDIR}"/etc/init.d/vgl
-install -Dm755 "${_Svgl}" "${DESTDIR}"/usr/lib${LIBDIRSUFFIX}/vgl-helper.sh
-install -dm750 "${DESTDIR}"/var/lib/VirtualGL
-install -Dm644 "${_Cbumb}" "${DESTDIR}"/etc/conf.d/bumblebee
-install -Dm755 "${_Ibumb}" "${DESTDIR}"/etc/init.d/bumblebee
+install -Dm755 "${_Inv}" "${DESTDIR}/${SYSCONFDIR}/init.d/nvidia-smi"
+install -Dm644 "${_Cnvp}" "${DESTDIR}/${SYSCONFDIR}/conf.d/nvidia-persistenced"
+install -Dm755 "${_Invp}" "${DESTDIR}/${SYSCONFDIR}/init.d/nvidia-persistenced"
+install -Dm644 "${_Cvgl}" "${DESTDIR}/${SYSCONFDIR}/conf.d/vgl"
+install -Dm755 "${_Ivgl}" "${DESTDIR}/${SYSCONFDIR}/init.d/vgl"
+install -Dm755 "${_Svgl}" "${DESTDIR}/usr/lib${LIBDIRSUFFIX}/vgl-helper.sh"
+install -dm750 "${DESTDIR}/var/lib/VirtualGL"
+install -Dm644 "${_Cbumb}" "${DESTDIR}/${SYSCONFDIR}/conf.d/bumblebee"
+install -Dm755 "${_Ibumb}" "${DESTDIR}/${SYSCONFDIR}/init.d/bumblebee"
