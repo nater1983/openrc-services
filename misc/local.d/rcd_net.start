@@ -1,8 +1,0 @@
-#!/bin/bash
-# rcd_net.sh: to start some common slackware networking scripts
-
-# slackware firewall service
-# https://docs.slackware.com/howtos:security:basic_security#setup_a_firewall
-if [ -x /etc/rc.d/rc.firewall ]; then
-	/etc/rc.d/rc.firewall start
-fi

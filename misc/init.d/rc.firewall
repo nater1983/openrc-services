@@ -1,0 +1,46 @@
+#!/sbin/openrc-run
+# Distributed under the terms of the GNU General Public License v2
+
+# An OpenRC wrapper around Slackware's /etc/rc.d/rc.firewall
+# https://docs.slackware.com/howtos:security:basic_security#setup_a_firewall
+
+rcd_service="/etc/rc.d/rc.firewall"
+description="a wrapper for ${rcd_service}"
+extra_commands="save restore"
+
+depend() {
+	need localmount
+	before net
+}
+
+check() {
+	if [ ! -x "${rcd_service}" ] ; then
+		eerror "${rcd_service} not executable."
+		return 1
+	fi
+	return 0
+}
+
+start() {
+	check || return 1
+	ebegin "Starting ${RC_SVCNAME}"
+	"${rcd_service}"
+	eend $?
+}
+
+stop() {
+	check || return 1
+	ebegin "Stopping ${RC_SVCNAME}"
+	"${rcd_service}" stop
+	eend $? "rc-firewall stopped"
+}
+
+save() {
+	check || return 1
+	"${rcd_service}" save
+}
+
+restore() {
+	check || return 1
+	"${rcd_service}" restore
+}
