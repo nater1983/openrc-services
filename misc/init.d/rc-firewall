@@ -8,6 +8,12 @@ rcd_service="/etc/rc.d/rc.firewall"
 description="a wrapper for ${rcd_service}"
 extra_commands="save restore"
 
+# handling multiple firewall scripts
+suffix="${RC_SVCNAME#*.}"
+if [ -n "$suffix" ]; then
+	rcd_service="/etc/rc.d/rc.firewall.${suffix}"
+fi
+
 depend() {
 	need localmount
 	before net
