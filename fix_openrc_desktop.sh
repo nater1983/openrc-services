@@ -10,7 +10,9 @@ sed -e "${_p1}" -i "${DESTDIR}/${SYSCONFDIR}/init.d/bluetooth"
 
 # xdm
 _p1='s|/etc/profile.env|/etc/profile|g'
+_p2="s|etc/init.d|${SYSCONFDIR}/init.d|g"
 sed -e "${_p1}" -i "${DESTDIR}/${SYSCONFDIR}/init.d/xdm"
+sed -e "${_p2}" -i "${DESTDIR}/etc/X11/startDM.sh"
 
 # wpa_supplicant
 if [ -f /etc/os-release ]; then
