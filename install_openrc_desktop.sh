@@ -20,8 +20,7 @@ _Ixdm2=${_gentoo_uri}/x11-base/xorg-server/files/xdm-setup.initd-1
 _Sxdm=${_gentoo_uri}/x11-apps/xinit/files/startDM.sh
 _Cgpm=${_gentoo_uri}/sys-libs/gpm/files/gpm.conf.d
 _Igpm=${_gentoo_uri}/sys-libs/gpm/files/gpm.rc6-2
-_Iblue1=${_gentoo_uri}/net-wireless/bluez/files/rfcomm-init.d-r2
-_Iblue2=${_gentoo_uri}/net-wireless/bluez/files/bluetooth-init.d-r4
+_Iblue1=${_gentoo_uri}/net-wireless/bluez/files/bluetooth-init.d-r4
 _Cwpa=${_gentoo_uri}/net-wireless/wpa_supplicant/files/wpa_supplicant-conf.d
 _Iwpa=${_gentoo_uri}/net-wireless/wpa_supplicant/files/wpa_supplicant-init.d
 _Swpa=${_gentoo_uri}/net-wireless/wpa_supplicant/files/wpa_cli.sh
@@ -43,8 +42,7 @@ install -Dm755 "${_Ixdm2}" "${DESTDIR}/${SYSCONFDIR}/init.d/xdm-setup"
 install -Dm755 "${_Sxdm}" "${DESTDIR}/etc/X11/startDM.sh"
 install -Dm644 "${_Cgpm}" "${DESTDIR}/${SYSCONFDIR}/conf.d/gpm"
 install -Dm755 "${_Igpm}" "${DESTDIR}/${SYSCONFDIR}/init.d/gpm"
-install -Dm755 "${_Iblue1}" "${DESTDIR}/${SYSCONFDIR}/init.d/rfcomm"
-install -Dm755 "${_Iblue2}" "${DESTDIR}/${SYSCONFDIR}/init.d/bluetooth"
+install -Dm755 "${_Iblue1}" "${DESTDIR}/${SYSCONFDIR}/init.d/bluetooth"
 install -Dm644 "${_Cwpa}" "${DESTDIR}/${SYSCONFDIR}/conf.d/wpa_supplicant"
 install -Dm755 "${_Iwpa}" "${DESTDIR}/${SYSCONFDIR}/init.d/wpa_supplicant"
 install -Dm755 "${_Swpa}" "${DESTDIR}/etc/wpa_supplicant/wpa_cli.sh"
