@@ -19,7 +19,6 @@ _CDistcc=${_gentoo_uri}/sys-devel/distcc/files/3.2/conf
 _IDistcc=${_gentoo_uri}/sys-devel/distcc/files/3.2/init
 _CJenk=${_gentoo_uri}/dev-util/jenkins-bin/files/jenkins-bin.confd
 _IJenk=${_gentoo_uri}/dev-util/jenkins-bin/files/jenkins-bin.init2
-_LJenk=${_gentoo_uri}/dev-util/jenkins-bin/files/jenkins-bin-r1.logrotate
 _Cinflux=${_gentoo_uri}/dev-db/influxdb/files/influxdb.confd
 _Iinflux=${_gentoo_uri}/dev-db/influxdb/files/influxdb.rc
 _CRedS="${_gentoo_uri}/dev-db/redis/files/redis.confd-r1"
@@ -38,7 +37,6 @@ install -Dm644 "${_CDistcc}" "${DESTDIR}/${SYSCONFDIR}/conf.d/distccd"
 install -Dm755 "${_IDistcc}" "${DESTDIR}/${SYSCONFDIR}/init.d/distccd"
 install -Dm644 "${_CJenk}" "${DESTDIR}/${SYSCONFDIR}/conf.d/jenkins"
 install -Dm755 "${_IJenk}" "${DESTDIR}/${SYSCONFDIR}/init.d/jenkins"
-install -Dm644 "${_LJenk}" "${DESTDIR}/etc/logrotate.d/jenkins"
 install -Dm644 "${_Cinflux}" "${DESTDIR}/${SYSCONFDIR}/conf.d/influxdb"
 install -Dm755 "${_Iinflux}" "${DESTDIR}/${SYSCONFDIR}/init.d/influxdb"
 install -Dm644 "${_CRedS}" "${DESTDIR}/${SYSCONFDIR}/conf.d/redis"
