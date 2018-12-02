@@ -10,7 +10,7 @@ extra_commands="save restore"
 
 # handling multiple firewall scripts
 suffix="${RC_SVCNAME#*.}"
-if [ -n "$suffix" ]; then
+if [ ! "$suffix" = "$RC_SVCNAME" ]; then
 	rcd_service="/etc/rc.d/rc.firewall.${suffix}"
 fi
 
