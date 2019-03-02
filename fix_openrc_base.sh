@@ -14,6 +14,7 @@ sed -e "${_p1}" -i "${DESTDIR}/${SYSCONFDIR}/init.d/dbus"
 # dhcpcd
 # get dhcpcd version
 dhcpcd_ver=$(ls /var/log/packages/ | grep dhcpcd | cut -f 2 -d "-")
+[ -z "${dhcpcd_ver}" ] && dhcpcd_ver=999999
 if [ $(ver "$dhcpcd_ver") -lt $(ver "6.10") ]; then
   # fix for slackware 14.2
   _p1='s|dhcpcd.pid|dhcpcd/dhcpcd.pid|g'
