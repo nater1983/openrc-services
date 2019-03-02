@@ -18,9 +18,10 @@ _Idhcp1=${_gentoo_uri}/net-misc/dhcp/files/dhcpd.init5
 _Idhcp2=${_gentoo_uri}/net-misc/dhcp/files/dhcrelay.init3
 _Chost=${_gentoo_uri}/net-wireless/hostapd/files/hostapd-conf.d
 _Ihost=${_gentoo_uri}/net-wireless/hostapd/files/hostapd-init.d
-_Cip1=${_gentoo_uri}/net-firewall/iptables/files/iptables-1.4.13.confd
-_Cip2=${_gentoo_uri}/net-firewall/iptables/files/ip6tables-1.4.13.confd
-_Iip=${_gentoo_uri}/net-firewall/iptables/files/iptables-1.4.13-r1.init
+_Cipt=${_gentoo_uri}/net-firewall/iptables/files/iptables-r1.confd
+_Iipt=${_gentoo_uri}/net-firewall/iptables/files/iptables-r2.init
+_Cip6t=${_gentoo_uri}/net-firewall/iptables/files/ip6tables-r1.confd
+_Iip6t=${_gentoo_uri}/net-firewall/iptables/files/iptables-r2.init
 #_Ikrb1=app-crypt/mit-krb5/files/mit-krb5kadmind.initd-r1
 #_Ikrb2=app-crypt/mit-krb5/files/mit-krb5kdc.initd-r1
 #_Ikrb3=app-crypt/mit-krb5/files/mit-krb5kpropd.initd-r1
@@ -78,6 +79,7 @@ _Cdnsmasq=${_gentoo_uri}/net-dns/dnsmasq/files/dnsmasq.confd-r1
 _Idnsmasq=${_gentoo_uri}/net-dns/dnsmasq/files/dnsmasq-init-r3
 _Csyncthing=${_gentoo_uri}/net-p2p/syncthing/files/syncthing.confd
 _Isyncthing=${_gentoo_uri}/net-p2p/syncthing/files/syncthing.initd
+_Iteamvd=${_gentoo_uri}/net-misc/teamviewer/files/teamviewerd13.init
 _Ctftphpa=${_gentoo_uri}/net-ftp/tftp-hpa/files/in.tftpd.confd-0.44
 _Itftphpa=${_gentoo_uri}/net-ftp/tftp-hpa/files/in.tftpd.rc6
 
@@ -95,10 +97,10 @@ install -Dm755 "${_Idhcp2}" "${DESTDIR}/${SYSCONFDIR}/init.d/dhcrelay"
 install -Dm755 "${_Idhcp2}" "${DESTDIR}/${SYSCONFDIR}/init.d/dhcrelay6"
 install -Dm644 "${_Chost}" "${DESTDIR}/${SYSCONFDIR}/conf.d/hostapd"
 install -Dm755 "${_Ihost}" "${DESTDIR}/${SYSCONFDIR}/init.d/hostapd"
-install -Dm644 "${_Cip1}" "${DESTDIR}/${SYSCONFDIR}/conf.d/iptables"
-install -Dm755 "${_Iip}" "${DESTDIR}/${SYSCONFDIR}/init.d/iptables"
-install -Dm644 "${_Cip2}" "${DESTDIR}/${SYSCONFDIR}/conf.d/ip6tables"
-install -Dm755 "${_Iip}" "${DESTDIR}/${SYSCONFDIR}/init.d/ip6tables"
+install -Dm644 "${_Cipt}" "${DESTDIR}/${SYSCONFDIR}/conf.d/iptables"
+install -Dm755 "${_Iipt}" "${DESTDIR}/${SYSCONFDIR}/init.d/iptables"
+install -Dm644 "${_Cip6t}" "${DESTDIR}/${SYSCONFDIR}/conf.d/ip6tables"
+install -Dm755 "${_Iip6t}" "${DESTDIR}/${SYSCONFDIR}/init.d/ip6tables"
 #install -Dm755 "${_gentoo_uri}/${_Ikrb1}" "${DESTDIR}/${SYSCONFDIR}/init.d/krb5kadmind"
 #install -Dm755 "${_gentoo_uri}/${_Ikrb2}" "${DESTDIR}/${SYSCONFDIR}/init.d/krb5kdc"
 #install -Dm755 "${_gentoo_uri}/${_Ikrb3}" "${DESTDIR}/${SYSCONFDIR}/init.d/krb5kpropd"
@@ -155,11 +157,12 @@ install -Dm644 "${_Cdnsmasq}" "${DESTDIR}/${SYSCONFDIR}/conf.d/dnsmasq"
 install -Dm755 "${_Idnsmasq}" "${DESTDIR}/${SYSCONFDIR}/init.d/dnsmasq"
 install -Dm644 "${_Csyncthing}" "${DESTDIR}/${SYSCONFDIR}/conf.d/syncthing"
 install -Dm755 "${_Isyncthing}" "${DESTDIR}/${SYSCONFDIR}/init.d/syncthing"
+install -Dm755 "${_Iteamvd}" "${DESTDIR}/${SYSCONFDIR}/init.d/teamviewerd"
+install -Dm644 "${_Ctftphpa}" "${DESTDIR}/${SYSCONFDIR}/conf.d/tftpd-hpa"
+install -Dm755 "${_Itftphpa}" "${DESTDIR}/${SYSCONFDIR}/init.d/tftpd-hpa"
 install -Dm644 "misc/gentoo-apache/init/apache2.confd" "${DESTDIR}/${SYSCONFDIR}/conf.d/httpd"
 install -Dm755 "misc/gentoo-apache/init/apache2.initd" "${DESTDIR}/${SYSCONFDIR}/init.d/httpd"
 install -Dm755 "misc/init.d/wicd.initd" "${DESTDIR}/${SYSCONFDIR}/init.d/wicd"
-install -Dm644 "${_Ctftphpa}" "${DESTDIR}/${SYSCONFDIR}/conf.d/tftpd-hpa"
-install -Dm755 "${_Itftphpa}" "${DESTDIR}/${SYSCONFDIR}/init.d/tftpd-hpa"
 
 # comments
 #
