@@ -78,6 +78,8 @@ _Cdnsmasq=${_gentoo_uri}/net-dns/dnsmasq/files/dnsmasq.confd-r1
 _Idnsmasq=${_gentoo_uri}/net-dns/dnsmasq/files/dnsmasq-init-r3
 _Csyncthing=${_gentoo_uri}/net-p2p/syncthing/files/syncthing.confd
 _Isyncthing=${_gentoo_uri}/net-p2p/syncthing/files/syncthing.initd
+_Ctftphpa=${_gentoo_uri}/net-ftp/tftp-hpa/files/in.tftpd.confd-0.44
+_Itftphpa=${_gentoo_uri}/net-ftp/tftp-hpa/files/in.tftpd.rc6
 
 # install
 install -Dm755 "${_Iautofs}" "${DESTDIR}/${SYSCONFDIR}/init.d/autofs"
@@ -156,6 +158,8 @@ install -Dm755 "${_Isyncthing}" "${DESTDIR}/${SYSCONFDIR}/init.d/syncthing"
 install -Dm644 "misc/gentoo-apache/init/apache2.confd" "${DESTDIR}/${SYSCONFDIR}/conf.d/httpd"
 install -Dm755 "misc/gentoo-apache/init/apache2.initd" "${DESTDIR}/${SYSCONFDIR}/init.d/httpd"
 install -Dm755 "misc/init.d/wicd.initd" "${DESTDIR}/${SYSCONFDIR}/init.d/wicd"
+install -Dm644 "${_Ctftphpa}" "${DESTDIR}/${SYSCONFDIR}/conf.d/tftpd-hpa"
+install -Dm755 "${_Itftphpa}" "${DESTDIR}/${SYSCONFDIR}/init.d/tftpd-hpa"
 
 # comments
 #
