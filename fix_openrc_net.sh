@@ -26,7 +26,9 @@ sed -e "${_p1}" -i "${DESTDIR}/${SYSCONFDIR}/conf.d/dnsmasq"
 
 # named
 _p1='s|/etc/bind/named.conf|/etc/named.conf|g'
-sed -e "${_p1}" -i "${DESTDIR}/${SYSCONFDIR}/init.d/named"
+_p2='s|-u named||g'
+_p3='s|root:named|root|g'
+sed -e "${_p1}" -e "${_p2}" -e "${_p3}" -i "${DESTDIR}/${SYSCONFDIR}/init.d/named"
 
 # hostapd
 sed -e "s|INTERFACES=|#INTERFACES=|" -i "${DESTDIR}/${SYSCONFDIR}/conf.d/hostapd"
