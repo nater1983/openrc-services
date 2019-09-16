@@ -14,6 +14,7 @@ _Irsysl=${_gentoo_uri}/app-admin/rsyslog/files/rsyslog.initd-r1
 _Csane=${_gentoo_uri}/media-gfx/sane-backends/files/saned.confd
 _Isane=${_gentoo_uri}/media-gfx/sane-backends/files/saned.initd
 _Ifuse=${_gentoo_uri}/sys-fs/fuse/files/fuse.init
+_Imcel=${_gentoo_uri}/app-admin/mcelog/files/mcelog.init-r1
 _Cmeta=${_gentoo_uri}/app-admin/metalog/files/metalog.confd
 _Imeta=${_gentoo_uri}/app-admin/metalog/files/metalog.initd-r1
 _Csyslog=${_gentoo_uri}/app-admin/syslog-ng/files/3.7/syslog-ng.confd
@@ -68,6 +69,8 @@ _Ivirtlock=${_gentoo_uri}/app-emulation/libvirt/files/virtlockd.init-r1
 _Ivirtlog=${_gentoo_uri}/app-emulation/libvirt/files/virtlogd.init-r1
 _CPulseAudio=${_gentoo_uri}/media-sound/pulseaudio/files/pulseaudio.conf.d
 _IPulseAudio=${_gentoo_uri}/media-sound/pulseaudio/files/pulseaudio.init.d-5
+_Cchrony=${_gentoo_uri}/net-misc/chrony/files/chronyd.conf
+_Ichrony=${_gentoo_uri}/net-misc/chrony/files/chronyd.init-r2
 
 # install
 install -Dm755 "${_Iacron}" "${DESTDIR}/${SYSCONFDIR}/init.d/anacron"
@@ -90,6 +93,7 @@ install -Dm755 "${_Irsysl}" "${DESTDIR}/${SYSCONFDIR}/init.d/rsyslog"
 install -Dm644 "${_Csane}" "${DESTDIR}/${SYSCONFDIR}/conf.d/saned"
 install -Dm755 "${_Isane}" "${DESTDIR}/${SYSCONFDIR}/init.d/saned"
 install -Dm755 "${_Ifuse}" "${DESTDIR}/${SYSCONFDIR}/init.d/fuse"
+install -Dm755 "${_Imcel}" "${DESTDIR}/${SYSCONFDIR}/init.d/mcelog"
 install -Dm644 "${_Cmeta}" "${DESTDIR}/${SYSCONFDIR}/conf.d/metalog"
 install -Dm755 "${_Imeta}" "${DESTDIR}/${SYSCONFDIR}/init.d/metalog"
 install -Dm644 "${_Csyslog}" "${DESTDIR}/${SYSCONFDIR}/conf.d/syslog-ng"
@@ -135,3 +139,6 @@ install -Dm755 "misc/init.d/zfs.initd" "${DESTDIR}/${SYSCONFDIR}/init.d/zfs"
 install -Dm755 "misc/init.d/netdata-openrc.initd" "${DESTDIR}/${SYSCONFDIR}/init.d/netdata"
 install -Dm644 "misc/conf.d/docker.confd" "${DESTDIR}/${SYSCONFDIR}/conf.d/docker"
 install -Dm755 "misc/init.d/docker.initd" "${DESTDIR}/${SYSCONFDIR}/init.d/docker"
+install -Dm644 "${_Cchrony}" "${DESTDIR}/${SYSCONFDIR}/conf.d/chronyd"
+install -Dm755 "${_Ichrony}" "${DESTDIR}/${SYSCONFDIR}/init.d/chronyd"
+
