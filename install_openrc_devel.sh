@@ -11,7 +11,6 @@ _Cgit=${_gentoo_uri}/dev-vcs/git/files/git-daemon.confd
 _Igit=${_gentoo_uri}/dev-vcs/git/files/git-daemon-r1.initd
 _Cmy=${_gentoo_uri}/dev-db/mysql-init-scripts/files/conf.d-2.0
 _Imy=${_gentoo_uri}/dev-db/mysql-init-scripts/files/init.d-2.2
-_Imysvd=${_gentoo_uri}/dev-db/mysql-init-scripts/files/init.d-supervise-2.3
 _Csvn=${_gentoo_uri}/dev-vcs/subversion/files/svnserve.confd
 _Isvn=${_gentoo_uri}/dev-vcs/subversion/files/svnserve.initd3
 _CPgsql=${_gentoo_uri}/dev-db/postgresql/files/postgresql.confd-9.3
@@ -34,7 +33,6 @@ install -Dm644 "${_Cgit}" "${DESTDIR}/${SYSCONFDIR}/conf.d/git-daemon"
 install -Dm755 "${_Igit}" "${DESTDIR}/${SYSCONFDIR}/init.d/git-daemon"
 install -Dm644 "${_Cmy}" "${DESTDIR}/${SYSCONFDIR}/conf.d/mysqld"
 install -Dm755 "${_Imy}" "${DESTDIR}/${SYSCONFDIR}/init.d/mysqld"
-install -Dm755 "${_Imysvd}" "${DESTDIR}/${SYSCONFDIR}/init.d/mysqld-supervised"
 install -Dm644 "${_CPgsql}" "${DESTDIR}/${SYSCONFDIR}/conf.d/postgresql"
 install -Dm755 "${_IPgsql}" "${DESTDIR}/${SYSCONFDIR}/init.d/postgresql"
 install -Dm644 "${_Csvn}" "${DESTDIR}/${SYSCONFDIR}/conf.d/svn"
