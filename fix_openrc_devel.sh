@@ -15,7 +15,6 @@ _p2='s|/etc/mysql/my.cnf|/etc/my.cnf|g'
 _p3='s|STARTUP_TIMEOUT="900"|STARTUP_TIMEOUT=30|'
 _p4='s|STOP_TIMEOUT=120|STOP_TIMEOUT=60|'
 sed -e "${_p1}" -i "${DESTDIR}/${SYSCONFDIR}/init.d/mysqld"
-sed -e "${_p1}" -i "${DESTDIR}/${SYSCONFDIR}/init.d/mysqld-supervised"
 sed -e "${_p2}" -e "${_p3}" -e "${_p4}" -i "${DESTDIR}/${SYSCONFDIR}/conf.d/mysqld"
 # remove extra check
 sed "/\! -d \"\${datadir}\"\/mysql/,+11d" -i "${DESTDIR}/${SYSCONFDIR}/init.d/mysqld"
