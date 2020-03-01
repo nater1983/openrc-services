@@ -8,7 +8,6 @@ SYSCONFDIR=${SYSCONFDIR:-etc}
 
 echo "Installing OpenRC services..."
 
-sh install_openrc_accessible.sh "$DESTDIR"
 sh install_openrc_base.sh "$DESTDIR"
 sh install_openrc_desktop.sh "$DESTDIR"
 sh install_openrc_devel.sh "$DESTDIR"

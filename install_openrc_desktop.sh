@@ -23,6 +23,8 @@ install -Dm755 "${_gentoo_uri}/sys-libs/gpm/files/gpm.rc6-2" "${DESTDIR}/${SYSCO
 install -Dm755 "${_gentoo_uri}/net-wireless/bluez/files/bluetooth-init.d-r4" "${DESTDIR}/${SYSCONFDIR}/init.d/bluetooth"
 install -Dm644 "${_gentoo_uri}/media-sound/pulseaudio/files/pulseaudio.conf.d" "${DESTDIR}/${SYSCONFDIR}/conf.d/pulseaudio"
 install -Dm755 "${_gentoo_uri}/media-sound/pulseaudio/files/pulseaudio.init.d-5" "${DESTDIR}/${SYSCONFDIR}/init.d/pulseaudio"
+install -Dm644 "${_gentoo_uri}/app-accessibility/espeakup/files/espeakup.confd" "${DESTDIR}/${SYSCONFDIR}/conf.d/espeakup"
+install -Dm755 "${_gentoo_uri}/app-accessibility/espeakup/files/espeakup.rc" "${DESTDIR}/${SYSCONFDIR}/init.d/espeakup"
 install -Dm755 "misc/init.d/avahi-daemon" "${DESTDIR}/${SYSCONFDIR}/init.d/avahi-daemon"
 install -Dm755 "misc/init.d/avahi-daemon" "${DESTDIR}/${SYSCONFDIR}/init.d/avahi-daemon"
 install -Dm755 "misc/init.d/tlp-init.openrc-r2" "${DESTDIR}/${SYSCONFDIR}/init.d/tlp"
