@@ -27,13 +27,9 @@ install -Dm644 "${_gentoo_uri}/dev-db/mongodb/files/mongodb.confd-r3" "${DESTDIR
 install -Dm755 "${_gentoo_uri}/dev-db/mongodb/files/mongodb.initd-r3" "${DESTDIR}/${SYSCONFDIR}/init.d/mongodb"
 install -Dm644 "${_gentoo_uri}/dev-db/mongodb/files/mongos.confd-r3" "${DESTDIR}/${SYSCONFDIR}/conf.d/mongos"
 install -Dm755 "${_gentoo_uri}/dev-db/mongodb/files/mongos.initd-r3" "${DESTDIR}/${SYSCONFDIR}/init.d/mongos"
+install -Dm644 "${_gentoo_uri}/www-servers/lighttpd/files/lighttpd.confd" "${DESTDIR}/${SYSCONFDIR}/conf.d/lighttpd"
+install -Dm755 "${_gentoo_uri}/www-servers/lighttpd/files/lighttpd.initd" "${DESTDIR}/${SYSCONFDIR}/init.d/lighttpd"
 install -Dm644 "misc/gentoo-apache/init/apache2.confd" "${DESTDIR}/${SYSCONFDIR}/conf.d/httpd"
 install -Dm755 "misc/gentoo-apache/init/apache2.initd" "${DESTDIR}/${SYSCONFDIR}/init.d/httpd"
 install -Dm755 "misc/init.d/php-fpm-r4.init" "${DESTDIR}/${SYSCONFDIR}/init.d/php-fpm"
-#install -Dm644 "${_gentoo_uri}/www-servers/lighttpd/files/lighttpd.confd" "${DESTDIR}/${SYSCONFDIR}/conf.d/lighttpd"
-#install -Dm755 "${_gentoo_uri}/www-servers/lighttpd/files/lighttpd.initd" "${DESTDIR}/${SYSCONFDIR}/init.d/lighttpd"
 
-# comments
-#
-# lighttpd not installed by default due to lack of /etc/lighttpd/lighttpd.conf
-# which is sourced by /etc/conf.d/lighttpd and causes error when starting services.
