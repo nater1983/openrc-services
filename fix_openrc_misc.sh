@@ -21,6 +21,13 @@ _p1='s|lp:lpadmin|daemon:sys|'
 _p2='s|@neededservices@|need dbus|'
 sed -e "${_p1}" -e "${_p2}" -i "${DESTDIR}/${SYSCONFDIR}/init.d/cupsd"
 
+# dcron
+_p1='/ebegin "Starting \${SVCNAME}"/a \ \tmkdir -p /run/cron'
+_p2='/start-stop-daemon/,+1d'
+_p3='/ebegin "Stopping \${SVCNAME}"/a \\t# adapted from \/etc\/rc.d\/rc.crond\
+	\/usr\/bin\/pkill --ns \$\$ --euid root -f "^\/usr\/sbin\/crond" 2> \/dev\/null'
+sed -e "${_p1}" -e "${_p2}" -e "${_p3}" -i "${DESTDIR}/${SYSCONFDIR}/init.d/dcron"
+
 # fcron
 _p1='s|/usr/libexec|/usr/sbin|g'
 sed -e "${_p1}" -i "${DESTDIR}/${SYSCONFDIR}/init.d/fcron"
@@ -99,3 +106,7 @@ sed -e "${_p1}" -i "${DESTDIR}/${SYSCONFDIR}/init.d/saned"
 _p1='s|/usr/bin/zfs|/sbin/zfs|'
 _p2='s|/usr/bin/zpool|/sbin/zpool|'
 sed -e "${_p1}" -e "${_p2}" -i "${DESTDIR}/${SYSCONFDIR}/init.d/zfs"
+
+# ulogd
+_p1='s| --uid ulogd||g'
+sed -e "${_p1}" -i "${DESTDIR}/${SYSCONFDIR}/init.d/ulogd"

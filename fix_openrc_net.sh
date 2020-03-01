@@ -4,22 +4,6 @@
 DESTDIR=$1
 SYSCONFDIR=${SYSCONFDIR:-etc}
 
-# apache (httpd)
-_p1='s|/usr/sbin/apache2|/usr/sbin/apachectl|'
-_p2='s|/etc/apache2/httpd.conf|/etc/httpd/httpd.conf|'
-if [ "$(uname -m)" = x86_64 ]; then
-  _p4='s|/usr/lib/apache2|/usr/lib64/httpd|'
-else
-  _p4='s|/usr/lib/apache2|/usr/lib/httpd|'
-fi
-_p5='s|apache2.pid|httpd.pid|'
-_p6='s|apache2 >/dev/null|httpd >/dev/null|'
-_p7='s|apache2|httpd|g'
-_p8='s|/run/apache_ssl_mutex|/run/httpd|'
-_p9='s|start-stop-daemon --start|start-stop-daemon --start --pidfile ${PIDFILE}|'
-sed -e "${_p1}" -e "${_p2}" -e "${_p4}" -e "${_p5}" -e "${_p6}" -e "${_p8}" -e "${_p9}" -i "${DESTDIR}/${SYSCONFDIR}/init.d/httpd"
-sed -e "${_p2}" -e "${_p4}" -e "${_p5}" -e "${_p7}" -i "${DESTDIR}/${SYSCONFDIR}/conf.d/httpd"
-
 # dnsmasq
 _p1='/DNSMASQ_OPTS/s/^/#/'
 sed -e "${_p1}" -i "${DESTDIR}/${SYSCONFDIR}/conf.d/dnsmasq"
@@ -32,6 +16,16 @@ sed -e "${_p1}" -e "${_p2}" -e "${_p3}" -i "${DESTDIR}/${SYSCONFDIR}/init.d/name
 
 # hostapd
 sed -e "s|INTERFACES=|#INTERFACES=|" -i "${DESTDIR}/${SYSCONFDIR}/conf.d/hostapd"
+
+# wpa_supplicant
+if [ -f /etc/os-release ]; then
+  sed -e "s|gentoo-release|os-release|" -i "${DESTDIR}/etc/wpa_supplicant/wpa_cli.sh"
+fi
+_p1="s|etc/init.d|${SYSCONFDIR}/init.d|g"
+sed -e "${_p1}" -i "${DESTDIR}/etc/wpa_supplicant/wpa_cli.sh"
+
+# networkmanager
+sed -e 's|@EPREFIX@||g' -i "${DESTDIR}/etc/NetworkManager/dispatcher.d/10-openrc-status"
 
 # iptables
 _p1='s|/sbin/${iptables_name}|/usr/sbin/${iptables_name}|g'

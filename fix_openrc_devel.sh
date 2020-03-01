@@ -4,6 +4,31 @@
 DESTDIR=$1
 SYSCONFDIR=${SYSCONFDIR:-etc}
 
+# apache (httpd)
+_p1='s|/usr/sbin/apache2|/usr/sbin/apachectl|'
+_p2='s|/etc/apache2/httpd.conf|/etc/httpd/httpd.conf|'
+if [ "$(uname -m)" = x86_64 ]; then
+  _p4='s|/usr/lib/apache2|/usr/lib64/httpd|'
+else
+  _p4='s|/usr/lib/apache2|/usr/lib/httpd|'
+fi
+_p5='s|apache2.pid|httpd.pid|'
+_p6='s|apache2 >/dev/null|httpd >/dev/null|'
+_p7='s|apache2|httpd|g'
+_p8='s|/run/apache_ssl_mutex|/run/httpd|'
+_p9='s|start-stop-daemon --start|start-stop-daemon --start --pidfile ${PIDFILE}|'
+sed -e "${_p1}" -e "${_p2}" -e "${_p4}" -e "${_p5}" -e "${_p6}" -e "${_p8}" -e "${_p9}" -i "${DESTDIR}/${SYSCONFDIR}/init.d/httpd"
+sed -e "${_p2}" -e "${_p4}" -e "${_p5}" -e "${_p7}" -i "${DESTDIR}/${SYSCONFDIR}/conf.d/httpd"
+
+# php-fpm
+_p1='s|lib/${PHPSLOT}/bin|sbin|g'
+_p2='s|/etc/php/fpm-${PHPSLOT}|/etc|'
+_p3='s|/run/php-fpm-${PHPSLOT}|/run/php-fpm|'
+_p4='/PHPSLOT=${SVCNAME#php-fpm-}/d'
+_p5='s|^.*${PHPSLOT}.*||'
+_p6='s|apache2|httpd|'
+sed -e "${_p1}" -e "${_p2}" -e "${_p3}" -e "${_p4}" -e "${_p5}" -e "${_p6}" -i "${DESTDIR}/${SYSCONFDIR}/init.d/php-fpm"
+
 # influxdb
 _p1='s|influxd.conf|influxdb.conf|g'
 sed -e "${_p1}" -i "${DESTDIR}/${SYSCONFDIR}/init.d/influxdb"

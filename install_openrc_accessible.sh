@@ -6,10 +6,6 @@ SYSCONFDIR=${SYSCONFDIR:-etc}
 
 _gentoo_uri="gentoo"
 
-# files
-_Cespk=${_gentoo_uri}/app-accessibility/espeakup/files/espeakup.confd
-_Iespk=${_gentoo_uri}/app-accessibility/espeakup/files/espeakup.rc
-
 # install
-install -Dm644 "${_Cespk}" "${DESTDIR}/${SYSCONFDIR}/conf.d/espeakup"
-install -Dm755 "${_Iespk}" "${DESTDIR}/${SYSCONFDIR}/init.d/espeakup"
+install -Dm644 "${_gentoo_uri}/app-accessibility/espeakup/files/espeakup.confd" "${DESTDIR}/${SYSCONFDIR}/conf.d/espeakup"
+install -Dm755 "${_gentoo_uri}/app-accessibility/espeakup/files/espeakup.rc" "${DESTDIR}/${SYSCONFDIR}/init.d/espeakup"

@@ -7,43 +7,24 @@ SYSCONFDIR=${SYSCONFDIR:-etc}
 _gentoo_uri="gentoo"
 _udev="udev-init-scripts"
 
-# files
-_Icron=${_gentoo_uri}/sys-process/cronie/files/cronie-1.3-initd
-_Ccrypt=${_gentoo_uri}/sys-fs/cryptsetup/files/1.6.7-dmcrypt.confd
-_Icrypt=${_gentoo_uri}/sys-fs/cryptsetup/files/1.6.7-dmcrypt.rc
-_Idbus=${_gentoo_uri}/sys-apps/dbus/files/dbus.initd-r1
-_Cdm=${_gentoo_uri}/sys-fs/lvm2/files/device-mapper.conf-1.02.22-r3
-_Idm1=${_gentoo_uri}/sys-fs/lvm2/files/device-mapper.rc-2.02.105-r2
-_Idm2=${_gentoo_uri}/sys-fs/lvm2/files/dmeventd.initd-2.02.67-r1
-_Clvm=${_gentoo_uri}/sys-fs/lvm2/files/lvm.confd-2.02.28-r2
-_Ilvm1=${_gentoo_uri}/sys-fs/lvm2/files/lvm.rc-2.02.172
-_Ilvm2=${_gentoo_uri}/sys-fs/lvm2/files/lvm-monitoring.initd-2.02.105-r2
-_Ilvm3=${_gentoo_uri}/sys-fs/lvm2/files/lvmetad.initd-2.02.116-r3
-_Cmdadm=${_gentoo_uri}/sys-fs/mdadm/files/mdadm.confd
-_Imdadm=${_gentoo_uri}/sys-fs/mdadm/files/mdadm.rc
-_Idhcpcd=${_gentoo_uri}/net-misc/dhcpcd/files/dhcpcd.initd
-_Cmdraid=${_gentoo_uri}/sys-fs/mdadm/files/mdraid.confd
-_Imdraid=${_gentoo_uri}/sys-fs/mdadm/files/mdraid.rc
-_Ikmod=${_gentoo_uri}/sys-apps/kmod/files/kmod-static-nodes-r1
-
 # install
-install -Dm755 "${_Icron}" "${DESTDIR}/${SYSCONFDIR}/init.d/cronie"
-install -Dm755 "${_Idhcpcd}" "${DESTDIR}/${SYSCONFDIR}/init.d/dhcpcd"
-install -Dm755 "${_Idbus}" "${DESTDIR}/${SYSCONFDIR}/init.d/dbus"
-install -Dm644 "${_Cdm}" "${DESTDIR}/${SYSCONFDIR}/conf.d/device-mapper"
-install -Dm755 "${_Idm1}" "${DESTDIR}/${SYSCONFDIR}/init.d/device-mapper"
-install -Dm755 "${_Idm2}" "${DESTDIR}/${SYSCONFDIR}/init.d/dmeventd"
-install -Dm644 "${_Ccrypt}" "${DESTDIR}/${SYSCONFDIR}/conf.d/dmcrypt"
-install -Dm755 "${_Icrypt}" "${DESTDIR}/${SYSCONFDIR}/init.d/dmcrypt"
-install -Dm644 "${_Clvm}" "${DESTDIR}/${SYSCONFDIR}/conf.d/lvm"
-install -Dm755 "${_Ilvm1}" "${DESTDIR}/${SYSCONFDIR}/init.d/lvm"
-install -Dm755 "${_Ilvm2}" "${DESTDIR}/${SYSCONFDIR}/init.d/lvm-monitoring"
-install -Dm755 "${_Ilvm3}" "${DESTDIR}/${SYSCONFDIR}/init.d/lvmetad"
-install -Dm644 "${_Cmdadm}" "${DESTDIR}/${SYSCONFDIR}/conf.d/mdadm"
-install -Dm755 "${_Imdadm}" "${DESTDIR}/${SYSCONFDIR}/init.d/mdadm"
-install -Dm644 "${_Cmdraid}" "${DESTDIR}/${SYSCONFDIR}/conf.d/mdraid"
-install -Dm755 "${_Imdraid}" "${DESTDIR}/${SYSCONFDIR}/init.d/mdraid"
-install -Dm755 "${_Ikmod}" "${DESTDIR}/${SYSCONFDIR}/init.d/kmod-static-nodes"
+install -Dm755 "${_gentoo_uri}/sys-process/cronie/files/cronie-1.3-initd" "${DESTDIR}/${SYSCONFDIR}/init.d/cronie"
+install -Dm755 "${_gentoo_uri}/net-misc/dhcpcd/files/dhcpcd.initd" "${DESTDIR}/${SYSCONFDIR}/init.d/dhcpcd"
+install -Dm755 "${_gentoo_uri}/sys-apps/dbus/files/dbus.initd-r1" "${DESTDIR}/${SYSCONFDIR}/init.d/dbus"
+install -Dm644 "${_gentoo_uri}/sys-fs/lvm2/files/device-mapper.conf-1.02.22-r3" "${DESTDIR}/${SYSCONFDIR}/conf.d/device-mapper"
+install -Dm755 "${_gentoo_uri}/sys-fs/lvm2/files/device-mapper.rc-2.02.105-r2" "${DESTDIR}/${SYSCONFDIR}/init.d/device-mapper"
+install -Dm755 "${_gentoo_uri}/sys-fs/lvm2/files/dmeventd.initd-2.02.67-r1" "${DESTDIR}/${SYSCONFDIR}/init.d/dmeventd"
+install -Dm644 "${_gentoo_uri}/sys-fs/cryptsetup/files/1.6.7-dmcrypt.confd" "${DESTDIR}/${SYSCONFDIR}/conf.d/dmcrypt"
+install -Dm755 "${_gentoo_uri}/sys-fs/cryptsetup/files/1.6.7-dmcrypt.rc"  "${DESTDIR}/${SYSCONFDIR}/init.d/dmcrypt"
+install -Dm644 "${_gentoo_uri}/sys-fs/lvm2/files/lvm.confd-2.02.28-r2" "${DESTDIR}/${SYSCONFDIR}/conf.d/lvm"
+install -Dm755 "${_gentoo_uri}/sys-fs/lvm2/files/lvm.rc-2.02.172" "${DESTDIR}/${SYSCONFDIR}/init.d/lvm"
+install -Dm755 "${_gentoo_uri}/sys-fs/lvm2/files/lvm-monitoring.initd-2.02.105-r2" "${DESTDIR}/${SYSCONFDIR}/init.d/lvm-monitoring"
+install -Dm755 "${_gentoo_uri}/sys-fs/lvm2/files/lvmetad.initd-2.02.116-r3" "${DESTDIR}/${SYSCONFDIR}/init.d/lvmetad"
+install -Dm644 "${_gentoo_uri}/sys-fs/mdadm/files/mdadm.confd" "${DESTDIR}/${SYSCONFDIR}/conf.d/mdadm"
+install -Dm755 "${_gentoo_uri}/sys-fs/mdadm/files/mdadm.rc" "${DESTDIR}/${SYSCONFDIR}/init.d/mdadm"
+install -Dm644 "${_gentoo_uri}/sys-fs/mdadm/files/mdraid.confd" "${DESTDIR}/${SYSCONFDIR}/conf.d/mdraid"
+install -Dm755 "${_gentoo_uri}/sys-fs/mdadm/files/mdraid.rc" "${DESTDIR}/${SYSCONFDIR}/init.d/mdraid"
+install -Dm755 "${_gentoo_uri}/sys-apps/kmod/files/kmod-static-nodes-r1" "${DESTDIR}/${SYSCONFDIR}/init.d/kmod-static-nodes"
 install -Dm644 "misc/${_udev}/conf.d/udev" "${DESTDIR}/${SYSCONFDIR}/conf.d/udev"
 install -Dm755 "misc/${_udev}/init.d/udev" "${DESTDIR}/${SYSCONFDIR}/init.d/udev"
 install -Dm644 "misc/${_udev}/conf.d/udev-settle" "${DESTDIR}/${SYSCONFDIR}/conf.d/udev-settle"

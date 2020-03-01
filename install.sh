@@ -24,7 +24,6 @@ sh fix_openrc_desktop.sh "$DESTDIR"
 sh fix_openrc_devel.sh "$DESTDIR"
 sh fix_openrc_misc.sh "$DESTDIR"
 sh fix_openrc_net.sh "$DESTDIR"
-sh fix_openrc_slack.sh "$DESTDIR"
 sh fix_openrc_video.sh "$DESTDIR"
 
 # Fixes for change in runscript and location of /var/run

@@ -1,7 +1,3 @@
-* Dont define service variable in install scripts.
-  This leads to redundancy and possible mistakes, in case
-  we define but forget to install.
-
 * Move or remove system specific fixes.
   The way we fix the services depends upon the system.
   So either make it system specific (ie, fixes.Slackware)
