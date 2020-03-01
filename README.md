@@ -9,3 +9,7 @@ Currently these can be used on Slackware Linux.
 * Documentation: http://docs.slackware.com/howtos:general_admin:openrc
 
 * Upstream: https://github.com/gentoo/gentoo
+
+### Note
+
+See [Hacking.md](HACKING.md) for setup details.
