@@ -5,18 +5,20 @@ DESTDIR=$1
 SYSCONFDIR=${SYSCONFDIR:-etc}
 
 # https://stackoverflow.com/a/29394504/4005566
-function ver { printf "%03d%03d%03d%03d" $(echo "$1" | tr '.' ' '); }
+ver() {
+  printf "%03d%03d%03d%03d" $(echo "$1" | tr '.' ' ');
+}
 
 # dbus
 _p1='s|dbus.pid|dbus/dbus.pid|g'
 sed -e "${_p1}" -i "${DESTDIR}/${SYSCONFDIR}/init.d/dbus"
 
 # dhcpcd
-# get dhcpcd version
-dhcpcd_ver=$(ls /var/log/packages/ | grep dhcpcd | cut -f 2 -d "-")
+# get dhcpcd version (override via setting env variable)
+dhcpcd_ver=${OPENRC_DHCPCD_VER:-$(ls /var/log/packages/ | grep dhcpcd | cut -f 2 -d "-")}
 [ -z "${dhcpcd_ver}" ] && dhcpcd_ver=999999
 if [ $(ver "$dhcpcd_ver") -lt $(ver "6.10") ]; then
-  # fix for slackware 14.2
+  # fix for older versions
   _p1='s|dhcpcd.pid|dhcpcd/dhcpcd.pid|g'
   sed -e "${_p1}" -i "${DESTDIR}/${SYSCONFDIR}/init.d/dhcpcd"
 fi
