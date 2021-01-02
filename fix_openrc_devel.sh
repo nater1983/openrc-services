@@ -45,23 +45,18 @@ sed -e "${_p2}" -e "${_p3}" -e "${_p4}" -i "${DESTDIR}/${SYSCONFDIR}/conf.d/mysq
 sed "/\! -d \"\${datadir}\"\/mysql/,+11d" -i "${DESTDIR}/${SYSCONFDIR}/init.d/mysqld"
 
 # postgresql
-if [ "$(uname -m)" = x86_64 ] || [ "$(uname -m)" = aarch64 ]; then
-  _p1='s|@LIBDIR@|lib64|g'
-else
-  _p1='s|@LIBDIR@|lib|g'
-fi
 # get postgresql version (override via setting env variable)
 postgres_ver=${OPENRC_POSTGRES_VER:-$(ls /var/log/packages/ | grep postgresql | cut -f 2 -d "-")}
 postgres_slot=$(echo "$postgres_ver" | cut -f 1-2 -d ".")
-_p2='s|postgresql-@SLOT@|postgresql/@SLOT@|g'
+_p1='s|postgresql-@SLOT@|postgresql/@SLOT@|g'
 if [ -z "$postgres_slot" ]; then
-  _p3="s|@SLOT@|@SLOT@|g"
+  _p2="s|@SLOT@|@SLOT@|g"
 else
-  _p3="s|@SLOT@|${postgres_slot}|g"
+  _p2="s|@SLOT@|${postgres_slot}|g"
 fi
-_p4='s|/var/lib/postgresql|/var/lib/pgsql|g'
-sed -e "${_p1}" -e "${_p2}" -e "${_p3}" -i "${DESTDIR}/${SYSCONFDIR}/init.d/postgresql"
-sed -e "${_p2}" -e "${_p3}" -e "${_p4}" -i "${DESTDIR}/${SYSCONFDIR}/conf.d/postgresql"
+_p3='s|/var/lib/postgresql|/var/lib/pgsql|g'
+sed -e "${_p1}" -e "${_p2}" -i "${DESTDIR}/${SYSCONFDIR}/init.d/postgresql"
+sed -e "${_p1}" -e "${_p2}" -e "${_p3}" -i "${DESTDIR}/${SYSCONFDIR}/conf.d/postgresql"
 
 # redis
 _p1='s|/usr/sbin/redis-server|/usr/bin/redis-server|'

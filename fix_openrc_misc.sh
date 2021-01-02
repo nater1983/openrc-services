@@ -8,14 +8,6 @@ SYSCONFDIR=${SYSCONFDIR:-etc}
 _p1='s|need logger net|need net\n	use logger|'
 sed -e "${_p1}" -i "${DESTDIR}/${SYSCONFDIR}/init.d/bitlbee"
 
-# boinc
-if [ "$(uname -m)" = x86_64 ] || [ "$(uname -m)" = aarch64 ]; then
-  _p1='s|@libdir@|lib64|g'
-else
-  _p1='s|@libdir@|lib|g'
-fi
-sed -e "${_p1}" -i "${DESTDIR}/${SYSCONFDIR}/init.d/boinc"
-
 # cups
 _p1='s|lp:lpadmin|daemon:sys|'
 _p2='s|@neededservices@|need dbus|'

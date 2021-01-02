@@ -22,3 +22,6 @@ start_pre() {
 
 	return 0
 }
+nal HUP --pidfile "${pidfile}"
+	eend $? "Failed to stop ${RC_SVCNAME}"
+}

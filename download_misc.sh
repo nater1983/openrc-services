@@ -1,8 +1,9 @@
 #!/bin/bash
 # download_misc.sh
 
-_src_uri="https://dev.gentoo.org/~williamh/dist"
-_dev_uri="https://dev.gentoo.org/~polynomial-c/dist/apache"
+_dev_uri1="https://dev.gentoo.org/~williamh/dist"
+_dev_uri2="https://dev.gentoo.org/~polynomial-c/dist/apache"
+_dev_uri3="https://dev.gentoo.org/~andrey_utkin/distfiles"
 
 _udev="udev-init-scripts"
 _uver=32
@@ -12,12 +13,14 @@ _apver=2.4.34
 _aprel=20180716
 
 source_archive=(
-	"${_src_uri}/${_udev}-${_uver}.tar.gz"
-	"${_dev_uri}/gentoo-apache-${_apver}-${_aprel}.tar.bz2"
+	"${_dev_uri1}/udev-init-scripts-32.tar.gz"
+	"${_dev_uri2}/gentoo-apache-2.4.34-20180716.tar.bz2"
+	"${_dev_uri3}/net-wireless_hostapd_2.7-r2_extras.tar.xz"
+	"${_dev_uri3}/sys-power_acpid_2.0.32-r2_extras.tar.xz"
 )
 
 source_initd=(
-	"https://github.com/dywisor/tlp-portage/raw/maint/app-laptop/tlp/files/tlp-init.openrc-r2",
+	"https://github.com/dywisor/tlp-portage/raw/maint/app-laptop/tlp/files/tlp-init.openrc-r3"
 	"https://github.com/moby/moby/raw/master/contrib/init/openrc/docker.initd"
 )
 
@@ -48,9 +51,3 @@ for src in "${source_archive[@]}"; do
 done
 cd ..
 
-# move downloaded files to common place
-[ -d "misc/${_apache}-${_apver}" ] && rm -r "misc/${_apache}"
-[ -d "misc/${_udev}-${_uver}" ] && rm -r "misc/${_udev}"
-
-mv "misc/${_apache}-${_apver}" "misc/${_apache}"
-mv "misc/${_udev}-${_uver}" "misc/${_udev}"

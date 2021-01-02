@@ -1,7 +1,6 @@
 #!/sbin/openrc-run
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 2011-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
 
 description="TLP start/stop actions"
 
@@ -10,9 +9,6 @@ depend() {
 
 	# sysfs is required (bat thresholds); localmount:/usr
 	need sysfs localmount
-
-	# thinkpad-radiosw (USE=deprecated)
-	use acpid
 
 	after NetworkManager dbus bluetooth
 
