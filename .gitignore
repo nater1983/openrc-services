@@ -5,6 +5,9 @@
 *.zip
 *.tar.*z*
 
+# extra wget backups
+misc/*/*.1
+
 # extra gentoo files
 *.patch
 *.diff

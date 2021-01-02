@@ -10,7 +10,6 @@ build:
   stage: test
   before_script:
     - rm -r gentoo
-    - rm -r misc
     - bash download.sh
     - bash download_misc.sh
   script:

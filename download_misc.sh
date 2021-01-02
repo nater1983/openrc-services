@@ -5,13 +5,6 @@ _dev_uri1="https://dev.gentoo.org/~williamh/dist"
 _dev_uri2="https://dev.gentoo.org/~polynomial-c/dist/apache"
 _dev_uri3="https://dev.gentoo.org/~andrey_utkin/distfiles"
 
-_udev="udev-init-scripts"
-_uver=32
-
-_apache=gentoo-apache
-_apver=2.4.34
-_aprel=20180716
-
 source_archive=(
 	"${_dev_uri1}/udev-init-scripts-32.tar.gz"
 	"${_dev_uri2}/gentoo-apache-2.4.34-20180716.tar.bz2"
@@ -29,25 +22,30 @@ source_confd=(
 )
 
 # Download to misc folder
+mkdir -p misc
 cd misc
+
+mkdir -p download
+cd download
 for src in "${source_archive[@]}"; do
-	wget -c "$src"
-done
-
-cd init.d
-for src in "${source_initd[@]}"; do
-	wget "$src"
-done
-
-cd ../conf.d
-for src in "${source_confd[@]}"; do
-	wget "$src"
+	wget --backups=1 "$src"
 done
 cd ..
-
 # Extract to relevant place
 for src in "${source_archive[@]}"; do
-	tar xf "$(basename $src)"
+	tar xf "download/$(basename ${src})"
+done
+
+mkdir -p init.d
+cd init.d
+for src in "${source_initd[@]}"; do
+	wget --backups=1 "$src"
 done
 cd ..
 
+mkdir -p conf.d
+cd conf.d
+for src in "${source_confd[@]}"; do
+	wget --backups=1 "$src"
+done
+cd ..
