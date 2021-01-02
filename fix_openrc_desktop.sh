@@ -9,6 +9,14 @@ LIBRCDIR=${LIBRCDIR:-usr/libexec/rc}
 _p1='s|libexec/bluetooth|sbin|g'
 sed -e "${_p1}" -i "${DESTDIR}/${SYSCONFDIR}/init.d/bluetooth"
 
+# elogind
+if [ "$(uname -m)" = x86_64 ] || [ "$(uname -m)" = aarch64 ]; then
+  _p1='s|@libdir@|lib64|g'
+else
+  _p1='s|@libdir@|lib|g'
+fi
+sed -e "${_p1}" -i "${DESTDIR}/${SYSCONFDIR}/conf.d/elogind"
+
 # xdm
 _p1='s|/etc/profile.env|/etc/profile|g'
 _p2="s|etc/init.d|${SYSCONFDIR}/init.d|g"

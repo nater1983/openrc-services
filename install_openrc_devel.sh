@@ -20,7 +20,7 @@ install -Dm755 "${_gentoo_uri}/sys-devel/distcc/files/3.2/init" "${DESTDIR}/${SY
 install -Dm644 "${_gentoo_uri}/dev-util/jenkins-bin/files/jenkins-bin.confd" "${DESTDIR}/${SYSCONFDIR}/conf.d/jenkins"
 install -Dm755 "${_gentoo_uri}/dev-util/jenkins-bin/files/jenkins-bin.init2" "${DESTDIR}/${SYSCONFDIR}/init.d/jenkins"
 install -Dm644 "${_gentoo_uri}/dev-db/influxdb/files/influxdb.confd" "${DESTDIR}/${SYSCONFDIR}/conf.d/influxdb"
-install -Dm755 "${_gentoo_uri}/dev-db/influxdb/files/influxdb.rc" "${DESTDIR}/${SYSCONFDIR}/init.d/influxdb"
+install -Dm755 "${_gentoo_uri}/dev-db/influxdb/files/influxdb.rc-r1" "${DESTDIR}/${SYSCONFDIR}/init.d/influxdb"
 install -Dm644 "${_gentoo_uri}/dev-db/redis/files/redis.confd-r1" "${DESTDIR}/${SYSCONFDIR}/conf.d/redis"
 install -Dm755 "${_gentoo_uri}/dev-db/redis/files/redis.initd-5" "${DESTDIR}/${SYSCONFDIR}/init.d/redis"
 install -Dm644 "${_gentoo_uri}/dev-db/mongodb/files/mongodb.confd-r3" "${DESTDIR}/${SYSCONFDIR}/conf.d/mongodb"
