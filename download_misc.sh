@@ -28,7 +28,7 @@ cd misc
 mkdir -p download
 cd download
 for src in "${source_archive[@]}"; do
-	wget --backups=1 "$src"
+	wget -c "$src"
 done
 cd ..
 # Extract to relevant place
