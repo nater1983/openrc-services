@@ -36,12 +36,12 @@ done
 
 cd init.d
 for src in "${source_initd[@]}"; do
-	wget -c "$src"
+	wget "$src"
 done
 
 cd ../conf.d
 for src in "${source_confd[@]}"; do
-	wget -c "$src"
+	wget "$src"
 done
 cd ..
 

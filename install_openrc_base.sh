@@ -16,7 +16,7 @@ install -Dm755 "${_gentoo_uri}/sys-fs/lvm2/files/dmeventd.initd-2.02.184-r2" "${
 install -Dm644 "${_gentoo_uri}/sys-fs/cryptsetup/files/1.6.7-dmcrypt.confd" "${DESTDIR}/${SYSCONFDIR}/conf.d/dmcrypt"
 install -Dm755 "${_gentoo_uri}/sys-fs/cryptsetup/files/1.6.7-dmcrypt.rc"  "${DESTDIR}/${SYSCONFDIR}/init.d/dmcrypt"
 install -Dm644 "${_gentoo_uri}/sys-fs/lvm2/files/lvm.confd-2.02.184-r3" "${DESTDIR}/${SYSCONFDIR}/conf.d/lvm"
-install -Dm755 "${_gentoo_uri}/sys-fs/lvm2/files/lvm.rc-2.03.05" "${DESTDIR}/${SYSCONFDIR}/init.d/lvm"
+install -Dm755 "${_gentoo_uri}/sys-fs/lvm2/files/lvm.rc-2.02.187" "${DESTDIR}/${SYSCONFDIR}/init.d/lvm"
 install -Dm755 "${_gentoo_uri}/sys-fs/lvm2/files/lvm-monitoring.initd-2.02.105-r2" "${DESTDIR}/${SYSCONFDIR}/init.d/lvm-monitoring"
 install -Dm755 "${_gentoo_uri}/sys-fs/lvm2/files/lvmetad.initd-2.02.116-r3" "${DESTDIR}/${SYSCONFDIR}/init.d/lvmetad"
 install -Dm644 "${_gentoo_uri}/sys-fs/mdadm/files/mdadm.confd" "${DESTDIR}/${SYSCONFDIR}/conf.d/mdadm"
