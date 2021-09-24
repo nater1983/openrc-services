@@ -7,7 +7,7 @@ _dev_uri3="https://dev.gentoo.org/~andrey_utkin/distfiles"
 
 source_archive=(
 	"${_dev_uri1}/udev-init-scripts-32.tar.gz"
-	"${_dev_uri2}/gentoo-apache-2.4.34-20180716.tar.bz2"
+	"${_dev_uri2}/gentoo-apache-2.4.46-r6-20210212.tar.bz2"
 	"${_dev_uri3}/net-wireless_hostapd_2.7-r2_extras.tar.xz"
 	"${_dev_uri3}/sys-power_acpid_2.0.32-r2_extras.tar.xz"
 )
