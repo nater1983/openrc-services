@@ -14,11 +14,11 @@ fi
 
 # install
 install -Dm755 "${_gentoo_uri}/x11-drivers/nvidia-drivers/files/nvidia-smi.init" "${DESTDIR}/${SYSCONFDIR}/init.d/nvidia-smi"
-install -Dm644 "${_gentoo_uri}/x11-drivers/nvidia-drivers/files/nvidia-persistenced.conf" "${DESTDIR}/${SYSCONFDIR}/conf.d/nvidia-persistenced"
-install -Dm755 "${_gentoo_uri}/x11-drivers/nvidia-drivers/files/nvidia-persistenced.init" "${DESTDIR}/${SYSCONFDIR}/init.d/nvidia-persistenced"
+install -Dm644 "${_gentoo_uri}/x11-drivers/nvidia-drivers/files/nvidia-persistenced.confd" "${DESTDIR}/${SYSCONFDIR}/conf.d/nvidia-persistenced"
+install -Dm755 "${_gentoo_uri}/x11-drivers/nvidia-drivers/files/nvidia-persistenced.initd" "${DESTDIR}/${SYSCONFDIR}/init.d/nvidia-persistenced"
 install -Dm644 "${_gentoo_uri}/x11-misc/virtualgl/files/vgl.confd-r2" "${DESTDIR}/${SYSCONFDIR}/conf.d/vgl"
-install -Dm755 "${_gentoo_uri}/x11-misc/virtualgl/files/vgl.initd-r3" "${DESTDIR}/${SYSCONFDIR}/init.d/vgl"
+install -Dm755 "${_gentoo_uri}/x11-misc/virtualgl/files/vgl.initd-r4" "${DESTDIR}/${SYSCONFDIR}/init.d/vgl"
 install -Dm755 "${_gentoo_uri}/x11-misc/virtualgl/files/vgl-helper.sh" "${DESTDIR}/usr/lib${LIBDIRSUFFIX}/vgl-helper.sh"
 install -Dm644 "${_gentoo_uri}/x11-misc/bumblebee/files/bumblebee.confd" "${DESTDIR}/${SYSCONFDIR}/conf.d/bumblebee"
-install -Dm755 "${_gentoo_uri}/x11-misc/bumblebee/files/bumblebee.initd" "${DESTDIR}/${SYSCONFDIR}/init.d/bumblebee"
+install -Dm755 "${_gentoo_uri}/x11-misc/bumblebee/files/bumblebee.initd-r1" "${DESTDIR}/${SYSCONFDIR}/init.d/bumblebee"
 install -dm750 "${DESTDIR}/var/lib/VirtualGL"  # why?
