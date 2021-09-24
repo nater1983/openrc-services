@@ -10,7 +10,6 @@ declare -A CATEGORIES
 CATEGORIES=(
 	[app_accessibility]='app-accessibility'
 	[app_admin]='app-admin'
-	[app_antivirus]='app-antivirus'
 	[app_crypt]='app-crypt'
 	[app_emulation]='app-emulation'
 	[app_misc]='app-misc'
@@ -46,7 +45,6 @@ CATEGORIES=(
 	[sys_process]='sys-process'
 	[www_servers]='www-servers'
 	[x11_apps]='x11-apps'
-	[x11_base]='x11-base'
 	[x11_drivers]='x11-drivers'
 	[x11_misc]='x11-misc'
 )
@@ -55,8 +53,7 @@ CATEGORIES=(
 # and set arrays like dev_db
 
 app_accessibility=(espeakup)
-app_admin=(cgmanager metalog mcelog monit rsyslog salt sysklogd syslog-ng ulogd)
-app_antivirus=(clamav)
+app_admin=(metalog mcelog monit rsyslog salt sysklogd syslog-ng ulogd)
 app_crypt=(mit-krb5)
 app_emulation=(libvirt virtualbox-guest-additions xe-guest-utilities)
 app_misc=(lirc)
@@ -79,7 +76,7 @@ net_misc=(chrony connman dhcp dhcpcd networkmanager ntp openntpd openssh rsync t
 net_nds=(openldap rpcbind)
 net_p2p=(syncthing transmission)
 net_print=(cups)
-net_proxy=(polipo privoxy squid)
+net_proxy=(privoxy squid)
 net_vpn=(openvpn tor)
 net_wireless=(bluez hostapd wpa_supplicant)
 sci_misc=(boinc)
@@ -92,7 +89,6 @@ sys_power=(acpid cpupower thermald)
 sys_process=(anacron at cronie dcron fcron)
 www_servers=(lighttpd nginx)
 x11_apps=(xinit)
-x11_base=(xorg-server)
 x11_drivers=(nvidia-drivers)
 x11_misc=(virtualgl bumblebee)
 

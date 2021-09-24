@@ -49,7 +49,6 @@ install -Dm644 "${_gentoo_uri}/net-misc/openssh/files/sshd-r1.confd" "${DESTDIR}
 install -Dm755 "${_gentoo_uri}/net-misc/openssh/files/sshd-r2.initd" "${DESTDIR}/${SYSCONFDIR}/init.d/sshd"
 install -Dm644 "${_gentoo_uri}/net-vpn/openvpn/files/openvpn-2.1.conf" "${DESTDIR}/${SYSCONFDIR}/conf.d/openvpn"
 install -Dm755 "${_gentoo_uri}/net-vpn/openvpn/files/openvpn-2.1.init" "${DESTDIR}/${SYSCONFDIR}/init.d/openvpn"
-install -Dm755 "${_gentoo_uri}/net-proxy/polipo/files/polipo.initd-5" "${DESTDIR}/${SYSCONFDIR}/init.d/polipo"
 install -Dm755 "${_gentoo_uri}/mail-mta/postfix/files/postfix.rc6.2.7" "${DESTDIR}/${SYSCONFDIR}/init.d/postfix"
 install -Dm755 "${_gentoo_uri}/net-proxy/privoxy/files/privoxy.initd-3" "${DESTDIR}/${SYSCONFDIR}/init.d/privoxy"
 install -Dm644 "${_gentoo_uri}/net-misc/rsync/files/rsyncd.conf.d" "${DESTDIR}/${SYSCONFDIR}/conf.d/rsyncd"
@@ -99,5 +98,6 @@ install -Dm644 "misc/conf.d/fail2ban.confd" "${DESTDIR}/${SYSCONFDIR}/conf.d/fai
 install -Dm755 "misc/init.d/fail2ban.initd" "${DESTDIR}/${SYSCONFDIR}/init.d/fail2ban"
 install -Dm644 "misc/net-wireless_hostapd_2.7-r2_extras/hostapd-conf.d" "${DESTDIR}/${SYSCONFDIR}/conf.d/hostapd"
 install -Dm755 "misc/net-wireless_hostapd_2.7-r2_extras/hostapd-init.d" "${DESTDIR}/${SYSCONFDIR}/init.d/hostapd"
+install -Dm755 "misc/init.d/polipo.initd-5" "${DESTDIR}/${SYSCONFDIR}/init.d/polipo"
 #install -Dm755 "${_gentoo_uri}/net-nds/openldap/files/slpd-init" "${DESTDIR}/${SYSCONFDIR}/init.d/slpd"
 

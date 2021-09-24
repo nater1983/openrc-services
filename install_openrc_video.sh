@@ -13,7 +13,6 @@ if [ "$(uname -m)" = "x86_64" ] || [ "$(uname -m)" = "aarch64" ]; then
 fi
 
 # install
-install -Dm755 "${_gentoo_uri}/x11-drivers/nvidia-drivers/files/nvidia-smi.init" "${DESTDIR}/${SYSCONFDIR}/init.d/nvidia-smi"
 install -Dm644 "${_gentoo_uri}/x11-drivers/nvidia-drivers/files/nvidia-persistenced.confd" "${DESTDIR}/${SYSCONFDIR}/conf.d/nvidia-persistenced"
 install -Dm755 "${_gentoo_uri}/x11-drivers/nvidia-drivers/files/nvidia-persistenced.initd" "${DESTDIR}/${SYSCONFDIR}/init.d/nvidia-persistenced"
 install -Dm644 "${_gentoo_uri}/x11-misc/virtualgl/files/vgl.confd-r2" "${DESTDIR}/${SYSCONFDIR}/conf.d/vgl"

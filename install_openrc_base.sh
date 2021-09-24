@@ -8,7 +8,7 @@ _gentoo_uri="gentoo"
 
 # install
 install -Dm755 "${_gentoo_uri}/sys-process/cronie/files/cronie-1.3-initd" "${DESTDIR}/${SYSCONFDIR}/init.d/cronie"
-install -Dm755 "${_gentoo_uri}/net-misc/dhcpcd/files/dhcpcd.initd" "${DESTDIR}/${SYSCONFDIR}/init.d/dhcpcd"
+install -Dm755 "${_gentoo_uri}/net-misc/dhcpcd/files/dhcpcd.initd-r1" "${DESTDIR}/${SYSCONFDIR}/init.d/dhcpcd"
 install -Dm755 "${_gentoo_uri}/sys-apps/dbus/files/dbus.initd.in" "${DESTDIR}/${SYSCONFDIR}/init.d/dbus"
 install -Dm644 "${_gentoo_uri}/sys-fs/lvm2/files/device-mapper.conf-1.02.22-r3" "${DESTDIR}/${SYSCONFDIR}/conf.d/device-mapper"
 install -Dm755 "${_gentoo_uri}/sys-fs/lvm2/files/device-mapper.rc-2.02.105-r2" "${DESTDIR}/${SYSCONFDIR}/init.d/device-mapper"
