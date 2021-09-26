@@ -21,6 +21,10 @@ source_confd=(
 	"https://github.com/moby/moby/raw/master/contrib/init/openrc/docker.confd"
 )
 
+source_sh=(
+	"https://raw.githubusercontent.com/gentoo/gentoo-functions/master/functions.sh"
+)
+
 # Download to misc folder
 mkdir -p misc
 cd misc
@@ -46,6 +50,13 @@ cd ..
 mkdir -p conf.d
 cd conf.d
 for src in "${source_confd[@]}"; do
+	wget --backups=1 "$src"
+done
+cd ..
+
+mkdir -p sh
+cd sh
+for src in "${source_sh[@]}"; do
 	wget --backups=1 "$src"
 done
 cd ..

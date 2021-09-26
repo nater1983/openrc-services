@@ -12,6 +12,11 @@ misc/*/*.1
 *.patch
 *.diff
 
+misc/gentoo-apache-*/conf/*
+misc/gentoo-apache-*/docs/*
+misc/gentoo-apache-*/patches/*
+misc/gentoo-apache-*/scripts/*
+
 # local folders and files
 /test
 /logs
