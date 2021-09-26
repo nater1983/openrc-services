@@ -31,4 +31,4 @@ install -Dm755 "misc/init.d/avahi-daemon" "${DESTDIR}/${SYSCONFDIR}/init.d/avahi
 install -Dm755 "misc/init.d/avahi-dnsconfd" "${DESTDIR}/${SYSCONFDIR}/init.d/avahi-dnsconfd"
 install -Dm755 "misc/init.d/consolekit-1.0.0.initd" "${DESTDIR}/${SYSCONFDIR}/init.d/consolekit"
 install -Dm755 "misc/init.d/tlp-init.openrc-r3" "${DESTDIR}/${SYSCONFDIR}/init.d/tlp"
-install -Dm644 "misc/sh/gentoo-functions.sh" "${DESTDIR}/${LIBRCDIR}/gentoo-functions.sh"
+install -Dm644 "misc/sh/gentoo-functions.sh" "${DESTDIR}/${LIBRCDIR}/sh/gentoo-functions.sh"
