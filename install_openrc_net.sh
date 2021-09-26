@@ -62,7 +62,6 @@ install -Dm755 "${_gentoo_uri}/net-p2p/transmission/files/transmission-daemon.in
 install -Dm644 "${_gentoo_uri}/net-firewall/ufw/files/ufw.confd" "${DESTDIR}/${SYSCONFDIR}/conf.d/ufw"
 install -Dm755 "${_gentoo_uri}/net-firewall/ufw/files/ufw-2.initd" "${DESTDIR}/${SYSCONFDIR}/init.d/ufw"
 install -Dm755 "${_gentoo_uri}/net-ftp/vsftpd/files/vsftpd.init-3.0.5" "${DESTDIR}/${SYSCONFDIR}/init.d/vsftpd"
-install -Dm755 "${_gentoo_uri}/net-ftp/vsftpd/files/vsftpd-checkconfig.sh" "${DESTDIR}/usr/libexec/vsftpd-checkconfig.sh"
 install -Dm755 "${_gentoo_uri}/net-ftp/proftpd/files/proftpd.initd" "${DESTDIR}/${SYSCONFDIR}/init.d/proftpd"
 install -Dm644 "${_gentoo_uri}/net-analyzer/vnstat/files/vnstatd.confd" "${DESTDIR}/${SYSCONFDIR}/conf.d/vnstatd"
 install -Dm755 "${_gentoo_uri}/net-analyzer/vnstat/files/vnstatd.initd-r1" "${DESTDIR}/${SYSCONFDIR}/init.d/vnstatd"
