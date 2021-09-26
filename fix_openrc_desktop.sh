@@ -9,10 +9,9 @@ LIBRCDIR=${LIBRCDIR:-usr/libexec/rc}
 _p1='s|libexec/bluetooth|sbin|g'
 sed -e "${_p1}" -i "${DESTDIR}/${SYSCONFDIR}/init.d/bluetooth"
 
-# xdm
+# display-manager
 _p1='s|/etc/profile.env|/etc/profile|g'
-_p2="s|etc/init.d|${SYSCONFDIR}/init.d|g"
-_p3="s|lib/rc|${LIBRCDIR}|g"
-sed -e "${_p1}" -i "${DESTDIR}/${SYSCONFDIR}/init.d/xdm"
-sed -e "${_p2}" -e "${_p3}" -i "${DESTDIR}/etc/X11/startDM.sh"
-
+_p2="s|lib/rc|${LIBRCDIR}|g"
+_p3="s|/lib/gentoo/functions.sh|${LIBRCDIR}/gentoo-functions.sh|g"
+sed -e "${_p1}" -i "${DESTDIR}/${SYSCONFDIR}/init.d/display-manager"
+sed -e "${_p1}" -e "${_p2}" -e "${_p3}" -i "${DESTDIR}/usr/bin/startDM"

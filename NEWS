@@ -1,0 +1,12 @@
+20210926
+--------
+
+Switch from xdm to display-manager
+
+If using a display manager, please update ${OPENRC_CONF_DIR}/conf.d/display-manager
+and run the following commands:
+
+# rc-update del xdm default
+# rc-update add display-manager default
+
+More info: https://www.gentoo.org/support/news-items/2021-01-30-display-manager-init.html
