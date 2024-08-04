@@ -1,12 +1,12 @@
 #!/sbin/openrc-run
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 extra_commands="checkconfig"
 extra_stopped_commands="bootstrap_galera"
 
 description_checkconfig="Verify the server's configuration"
-description_boostrap_galera="Start a new Galera cluster with this server as the initial node"
+description_bootstrap_galera="Start a new Galera cluster with this server as the initial node"
 
 depend() {
 	use net.lo
@@ -47,7 +47,7 @@ bootstrap_galera() {
 
 start() {
 	# Check for old conf.d variables that mean migration was not yet done.
-	set | egrep -sq '^(mysql_slot_|MYSQL_BLOG_PID_FILE|STOPTIMEOUT)'
+	set | grep -Esq '^(mysql_slot_|MYSQL_BLOG_PID_FILE|STOPTIMEOUT)'
 	rc=$?
 	# Yes, MYSQL_INIT_I_KNOW_WHAT_I_AM_DOING is a hidden variable.
 	# It does have a use in testing, as it is possible to build a config file
