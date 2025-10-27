@@ -87,7 +87,7 @@ install -Dm644 "${_gentoo_uri}/net-wireless/wpa_supplicant/files/wpa_supplicant-
 install -Dm755 "${_gentoo_uri}/net-wireless/wpa_supplicant/files/wpa_supplicant-init.d" "${DESTDIR}/${SYSCONFDIR}/init.d/wpa_supplicant"
 install -Dm755 "${_gentoo_uri}/net-wireless/wpa_supplicant/files/wpa_cli.sh" "${DESTDIR}/etc/wpa_supplicant/wpa_cli.sh"
 install -Dm644 "${_gentoo_uri}/net-misc/networkmanager/files/conf.d.NetworkManager" "${DESTDIR}/${SYSCONFDIR}/conf.d/NetworkManager"
-install -Dm755 "${_gentoo_uri}/net-misc/networkmanager/files/init.d.NetworkManager-r2" "${DESTDIR}/${SYSCONFDIR}/init.d/NetworkManager"
+install -Dm755 "${_gentoo_uri}/net-misc/networkmanager/files/init.d.NetworkManager-r3" "${DESTDIR}/${SYSCONFDIR}/init.d/NetworkManager"
 install -Dm755 "${_gentoo_uri}/net-misc/networkmanager/files/10-openrc-status-r4" "${DESTDIR}/etc/NetworkManager/dispatcher.d/10-openrc-status"
 install -Dm644 "${_gentoo_uri}/net-dns/dnscrypt-proxy/files/dnscrypt-proxy.confd" "${DESTDIR}/${SYSCONFDIR}/conf.d/dnscrypt-proxy"
 install -Dm755 "${_gentoo_uri}/net-dns/dnscrypt-proxy/files/dnscrypt-proxy.initd" "${DESTDIR}/${SYSCONFDIR}/init.d/dnscrypt-proxy"
