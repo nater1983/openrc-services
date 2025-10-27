@@ -25,6 +25,8 @@ install -Dm755 "${_gentoo_uri}/gui-libs/display-manager-init/files/xdm.initd" "$
 install -Dm755 "${_gentoo_uri}/gui-libs/display-manager-init/files/display-manager-setup.initd" "${DESTDIR}/${SYSCONFDIR}/init.d/display-manager-setup"
 install -Dm755 "${_gentoo_uri}/gui-libs/display-manager-init/files/display-manager.initd-r1" "${DESTDIR}/${SYSCONFDIR}/init.d/display-manager"
 install -Dm755 "${_gentoo_uri}/gui-libs/display-manager-init/files/startDM-r1" "${DESTDIR}/usr/bin/startDM"
+install -Dm644 "${_gentoo_uri}/gui-libs/display-manager-init/files/sddm.confd" "${DESTDIR}/${SYSCONFDIR}/conf.d/sddm"
+install -Dm755 "${_gentoo_uri}/gui-libs/display-manager-init/files/sddm.initd" "${DESTDIR}/${SYSCONFDIR}/init.d/sddm"
 install -Dm644 "misc/sys-power_acpid_2.0.32-r2_extras/acpid-2.0.16-conf.d" "${DESTDIR}/${SYSCONFDIR}/conf.d/acpid"
 install -Dm755 "misc/sys-power_acpid_2.0.32-r2_extras/acpid-2.0.26-init.d" "${DESTDIR}/${SYSCONFDIR}/init.d/acpid"
 install -Dm755 "misc/init.d/avahi-daemon" "${DESTDIR}/${SYSCONFDIR}/init.d/avahi-daemon"
