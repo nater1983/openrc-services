@@ -1,0 +1,4 @@
+# Configuration for /etc/openrc/init.d/rtkit
+
+# Additional options to pass to rtkit.
+#command_args=""
