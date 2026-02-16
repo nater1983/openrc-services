@@ -20,7 +20,7 @@ install -Dm755 "${_gentoo_uri}/net-misc/dhcpcd/files/dhcpcd.initd-r1" "${DESTDIR
 #install -Dm644 "${_gentoo_uri}/net-misc/dhcpd/dhcrelay.conf" "${DESTDIR}/${SYSCONFDIR}/conf.d/dhcrelay"
 #install -Dm755 "${_gentoo_uri}/net-misc/dhcpd/dhcrelay.initrd" "${DESTDIR}/${SYSCONFDIR}/init.d/dhcrelay"
 #install -Dm644 "${_gentoo_uri}/net-misc/dhcpd/dhcrelay6.conf" "${DESTDIR}/${SYSCONFDIR}/conf.d/dhcrelay6"
-#install -Dm755 "${_gentoo_uri}/net-misc/dhcpd/dhcrelay.initrd" "${DESTDIR}/${SYSCONFDIR}/init.d/dhcrelay6"
+#install -Dm755 "${_gentoo_uri}/net-misc/dhcpd/dhcrelay6.initrd" "${DESTDIR}/${SYSCONFDIR}/init.d/dhcrelay6"
 install -Dm644 "${_gentoo_uri}/net-firewall/iptables/files/iptables-r1.confd" "${DESTDIR}/${SYSCONFDIR}/conf.d/iptables"
 install -Dm755 "${_gentoo_uri}/net-firewall/iptables/files/iptables-r2.init" "${DESTDIR}/${SYSCONFDIR}/init.d/iptables"
 install -Dm644 "${_gentoo_uri}/net-firewall/iptables/files/ip6tables-r1.confd" "${DESTDIR}/${SYSCONFDIR}/conf.d/ip6tables"
