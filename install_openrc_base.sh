@@ -23,6 +23,7 @@ install -Dm644 "${_gentoo_uri}/sys-fs/mdadm/files/mdadm.confd" "${DESTDIR}/${SYS
 install -Dm755 "${_gentoo_uri}/sys-fs/mdadm/files/mdadm.rc" "${DESTDIR}/${SYSCONFDIR}/init.d/mdadm"
 install -Dm644 "${_gentoo_uri}/sys-fs/mdadm/files/mdraid.confd" "${DESTDIR}/${SYSCONFDIR}/conf.d/mdraid"
 install -Dm755 "${_gentoo_uri}/sys-fs/mdadm/files/mdraid.rc" "${DESTDIR}/${SYSCONFDIR}/init.d/mdraid"
+install -Dm755 "${_gentoo_uri}/sys-fs/root.initrd" "${DESTDIR}/${SYSCONFDIR}/init.d/root"
 install -Dm755 "${_gentoo_uri}/sys-apps/kmod/files/kmod-static-nodes-r1" "${DESTDIR}/${SYSCONFDIR}/init.d/kmod-static-nodes"
 install -Dm644 "misc/udev-init-scripts-32/conf.d/udev" "${DESTDIR}/${SYSCONFDIR}/conf.d/udev"
 install -Dm755 "misc/udev-init-scripts-32/init.d/udev" "${DESTDIR}/${SYSCONFDIR}/init.d/udev"
