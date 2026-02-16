@@ -82,6 +82,8 @@ install -Dm644 "misc/conf.d/clamd.conf-r1" "${DESTDIR}/${SYSCONFDIR}/conf.d/clam
 install -Dm755 "misc/init.d/clamd.initd-r6" "${DESTDIR}/${SYSCONFDIR}/init.d/clamd"
 install -Dm755 "misc/init.d/avahi-dnsconfd.initrd" "${DESTDIR}/${SYSCONFDIR}/init.d/avahi-dnsconfd"
 install -Dm755 "misc/init.d/avahi-daemon.initrd" "${DESTDIR}/${SYSCONFDIR}/init.d/avahi-daemon"
+install -Dm755 "misc/init.d/consolefont.initd" "${DESTDIR}/${SYSCONFDIR}/init.d/consolefont"
+install -Dm755 "misc/init.d/devfs.initd" "${DESTDIR}/${SYSCONFDIR}/init.d/devfs"
 #install -Dm755 "${_gentoo_uri}/app-crypt/mit-krb5/files/mit-krb5kadmind.initd-r1" "${DESTDIR}/${SYSCONFDIR}/init.d/krb5kadmind"
 #install -Dm755 "${_gentoo_uri}/app-crypt/mit-krb5/files/mit-krb5kdc.initd-r1" "${DESTDIR}/${SYSCONFDIR}/init.d/krb5kdc"
 #install -Dm755 "${_gentoo_uri}/app-crypt/mit-krb5/files/mit-krb5kpropd.initd-r1" "${DESTDIR}/${SYSCONFDIR}/init.d/krb5kpropd"
