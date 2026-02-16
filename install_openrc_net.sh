@@ -15,7 +15,7 @@ install -Dm755 "${_gentoo_uri}/net-dns/bind/files/named.init-r14" "${DESTDIR}/${
 install -Dm644 "${_gentoo_uri}/dev-libs/cyrus-sasl/files/saslauthd-2.1.26.conf" "${DESTDIR}/${SYSCONFDIR}/conf.d/saslauthd"
 install -Dm755 "${_gentoo_uri}/dev-libs/cyrus-sasl/files/saslauthd2.rc7" "${DESTDIR}/${SYSCONFDIR}/init.d/saslauthd"
 install -Dm755 "${_gentoo_uri}/net-misc/dhcpcd/files/dhcpcd.initd-r1" "${DESTDIR}/${SYSCONFDIR}/init.d/dhcpcd"
-#install -Dm644 "${_gentoo_uri}/net-misc/dhcpd/dhcpd.conf2" "${DESTDIR}/${SYSCONFDIR}/conf.d/dhcpd"
+#install -Dm644 "${_gentoo_uri}/net-misc/dhcpd/dhcpd.conf" "${DESTDIR}/${SYSCONFDIR}/conf.d/dhcpd"
 #install -Dm755 "${_gentoo_uri}/net-misc/dhcpd/dhcpd.initrd" "${DESTDIR}/${SYSCONFDIR}/init.d/dhcpd"
 #install -Dm644 "${_gentoo_uri}/net-misc/dhcpd/dhcrelay.conf" "${DESTDIR}/${SYSCONFDIR}/conf.d/dhcrelay"
 #install -Dm755 "${_gentoo_uri}/net-misc/dhcpd/dhcrelay.initrd" "${DESTDIR}/${SYSCONFDIR}/init.d/dhcrelay"
