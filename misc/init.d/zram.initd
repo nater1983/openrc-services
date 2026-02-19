@@ -5,9 +5,8 @@ name="zram-swap"
 description="Enable swapping on a ZRAM device"
 
 depend() {
-    need localmount
-    after modloop
-    before swap
+	need localmount swap
+	after bootmisc modules
 }
 
 start() {
