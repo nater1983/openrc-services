@@ -1,0 +1,51 @@
+#!/sbin/openrc-run
+# /etc/init.d/zram-swap
+# OpenRC service to enable ZRAM swap
+
+name="zram-swap"
+description="Enable swapping on a ZRAM device"
+
+depend() {
+    need localmount
+    after modloop
+    before swap
+}
+
+start() {
+    ebegin "Checking ZRAM configuration"
+    [ -z "$container" ] && [ -r /etc/default/zram ] || return 0
+    . /etc/default/zram
+
+    if [ "$ZRAM_ENABLE" = "1" ]; then
+        if [ ! -d /sys/devices/virtual/block/zram0 ]; then
+            ebegin "Loading zram module"
+            modprobe zram num_devices="$ZRAMNUMBER"
+            eend $?
+        fi
+
+        ebegin "Setting up /dev/zram0"
+        ZRAM_DEVICE=$(zramctl -f -a "$ZRAMCOMPRESSION" -s "${ZRAMSIZE}K")
+        eend $?
+
+        if [ -n "$ZRAM_DEVICE" ]; then
+            ebegin "Creating swap on $ZRAM_DEVICE"
+            mkswap "$ZRAM_DEVICE" 1>/dev/null 2>/dev/null
+            eend $?
+
+            ebegin "Activating ZRAM swap"
+            swapon --priority "$ZRAMPRIORITY" "$ZRAM_DEVICE"
+            eend $?
+        fi
+    fi
+
+    unset MEMTOTAL ZRAMCOMPRESSION ZRAMNUMBER ZRAMSIZE ZRAM_DEVICE ZRAM_ENABLE
+    eend 0
+}
+
+stop() {
+    ebegin "Disabling ZRAM swap"
+    for dev in $(swapon --noheadings --raw | awk '{print $1}' | grep zram); do
+        swapoff "$dev"
+    done
+    eend 0
+}
