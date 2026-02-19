@@ -33,8 +33,6 @@ install -Dm644 "${_gentoo_uri}/gui-libs/display-manager-init/files/gdm.confd" "$
 install -Dm755 "${_gentoo_uri}/gui-libs/display-manager-init/files/gdm.initd" "${DESTDIR}/${SYSCONFDIR}/init.d/gdm"
 install -Dm644 "misc/sys-power_acpid_2.0.32-r2_extras/acpid-2.0.16-conf.d" "${DESTDIR}/${SYSCONFDIR}/conf.d/acpid"
 install -Dm755 "misc/sys-power_acpid_2.0.32-r2_extras/acpid-2.0.26-init.d" "${DESTDIR}/${SYSCONFDIR}/init.d/acpid"
-install -Dm755 "misc/init.d/avahi-daemon" "${DESTDIR}/${SYSCONFDIR}/init.d/avahi-daemon"
-install -Dm755 "misc/init.d/avahi-dnsconfd" "${DESTDIR}/${SYSCONFDIR}/init.d/avahi-dnsconfd"
 install -Dm755 "misc/init.d/consolekit-1.0.0.initd" "${DESTDIR}/${SYSCONFDIR}/init.d/consolekit"
 install -Dm755 "misc/init.d/tlp-init.openrc-r3" "${DESTDIR}/${SYSCONFDIR}/init.d/tlp"
 install -Dm644 "misc/sh/functions.sh" "${DESTDIR}/${LIBRCDIR}/sh/gentoo-functions.sh"
