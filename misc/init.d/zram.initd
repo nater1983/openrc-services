@@ -1,5 +1,4 @@
 #!/sbin/openrc-run
-# /etc/init.d/zram-swap
 # OpenRC service to enable ZRAM swap
 
 name="zram-swap"
