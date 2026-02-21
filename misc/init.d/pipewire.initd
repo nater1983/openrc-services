@@ -6,7 +6,6 @@ description="A sound server which speaks pipewire, pulseaudio and jack."
 command=/usr/bin/pipewire
 command_args="${pipewire_args[@]}"
 command_background=yes
-command_user="pipewire:pipewire"
 pidfile="${PIPEWIRE_RUNTIME_DIR}/pipewire.pid"
 
 depend() {
@@ -20,8 +19,8 @@ start_pre() {
   fi
   # Optionally, add code to delete contents of "${PIPEWIRE_RUNTIME_DIR}"/*
   # (security/ information leak thoughts; maybe other cleanup thoughts).
-  chmod 700 "${PIPEWIRE_RUNTIME_PATH}"
-  chown "$(id -u):$(id -g)" "${PIPEWIRE_RUNTIME_PATH}"
+  chmod 700 "${PIPEWIRE_RUNTIME_DIR}"
+  chown "$(id -u):$(id -g)" "${PIPEWIRE_RUNTIME_DIR}"
   export PIPEWIRE_RUNTIME_DIR
 }
 
