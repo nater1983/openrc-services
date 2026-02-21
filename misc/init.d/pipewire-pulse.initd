@@ -8,7 +8,6 @@ description="Makes pipewire to be a drop-in for PulseAudio."
 command=/usr/bin/pipewire-pulse
 command_args="${pipewire_pulse_args[@]}"
 command_background=yes
-command_user="pipewire:pipewire"
 pidfile="${PULSE_RUNTIME_PATH}/pipewire-pulse.pid"
 
 depend() {
