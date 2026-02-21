@@ -1,12 +1,20 @@
 #!/sbin/openrc-run
 
-description="Multimedia processing graphs"
+PIPEWIRE_RUNTIME_DIR="/run/pipewire"
+DBUS_SESSION_BUS_ADDRESS="unix:path=/run/dbus/system_bus_socket"
+name="pipewire automatic session manager"
+description="On demand pipewire management"
+command=/usr/bin/wireplumber
+command_args="${wirplumber_args[@]}"
+command_background=yes
+command_user="pipewire:pipewire"
+pidfile="${PIPEWIRE_RUNTIME_DIR}/wireplumber.pid"
 
-command="/usr/bin/wireplumber"
+depend() {
+  need dbus pipewire
+}
 
-supervisor=supervise-daemon
-error_logger="logger -t '${RC_SVCNAME}' -p daemon.error"
-
-depends() {
-	use dbus
+start_pre() {
+  export PIPEWIRE_RUNTIME_DIR
+  export DBUS_SESSION_BUS_ADDRESS
 }
