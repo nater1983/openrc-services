@@ -7,7 +7,6 @@ description="On demand pipewire management"
 command=/usr/bin/wireplumber
 command_args="${wirplumber_args[@]}"
 command_background=yes
-command_user="pipewire:pipewire"
 pidfile="${PIPEWIRE_RUNTIME_DIR}/wireplumber.pid"
 
 depend() {
