@@ -92,6 +92,7 @@ install -Dm755 "misc/init.d/pipewire-pulse.initd" "${DESTDIR}/${SYSCONFDIR}/init
 install -Dm755 "misc/init.d/pipewire.initd" "${DESTDIR}/${SYSCONFDIR}/init.d/pipewire"
 install -Dm755 "misc/init.d/wireplumber.initd" "${DESTDIR}/${SYSCONFDIR}/init.d/wireplumber"
 install -Dm755 "misc/init.d/zram.initd" "${DESTDIR}/${SYSCONFDIR}/init.d/zram"
+install -Dm755 "misc/init.d/spice-vdagentd.initd" "${DESTDIR}/${SYSCONFDIR}/init.d/spice-vdagentd
 #install -Dm755 "${_gentoo_uri}/app-crypt/mit-krb5/files/mit-krb5kadmind.initd-r1" "${DESTDIR}/${SYSCONFDIR}/init.d/krb5kadmind"
 #install -Dm755 "${_gentoo_uri}/app-crypt/mit-krb5/files/mit-krb5kdc.initd-r1" "${DESTDIR}/${SYSCONFDIR}/init.d/krb5kdc"
 #install -Dm755 "${_gentoo_uri}/app-crypt/mit-krb5/files/mit-krb5kpropd.initd-r1" "${DESTDIR}/${SYSCONFDIR}/init.d/krb5kpropd"
